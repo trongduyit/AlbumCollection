@@ -1,36 +1,38 @@
-name: Deploy to Render
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [ master, main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Create artifacts archive
-        run: tar --exclude='.git' --exclude='.github' -czf artifacts.tar.gz .
-
-      - name: Upload to Render
-        env:
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
-        run: |
-          if [ -n "$RENDER_SERVICE_ID" ]; then
-            echo "Triggering Render deployment..."
-            curl -s -X POST "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
-              -H "Authorization: Bearer $RENDER_API_KEY" \
-              -H "Content-Type: application/json" \
-              -d '{"clearCache": false}'
-          else
-            echo "RENDER_SERVICE_ID not set. Set up GitHub secrets: RENDER_API_KEY and RENDER_SERVICE_ID"
-            echo "Get RENDER_SERVICE_ID from: https://dashboard.render.com → Your Static Site → Settings → General"
-          fi
-
-      - name: Save deployment info
-        run: |
-          echo "Deploy triggered! Check status at: https://dashboard.render.com"
-          echo "Live URL will be available in Render dashboard → your static site"
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,34 @@
+# GitHub Pages - Hanoi Landing
+# Generated for automatic deployment
+
+site: hanoi-landing
+url: "https://trongduyit.github.io"
+baseurl: "/hanoi-landing"
+
+# Build settings
+theme: null
+plugins: []
+
+# Exclude files from Jekyll processing
+exclude:
+  - .gitignore
+  - .gitattributes
+  - package.json
+  - package-lock.yaml
+  - pnpm-lock.yaml
+  - node_modules
+  - README.md
+  - DEPLOYMENT.md
+  - CLOUDFLARE_SETUP.md
+  - DEPLOY_CHECKLIST.md
+  - SEPARATION_NOTES.md
+  - "*.bat"
+  - "*.sh"
+  - ".env*"
+  - "*.ps1"
+
+# Ensure HTML is processed as static content
+include:
+  - ".htaccess"
+  - "index.html"
+  - "assets"
