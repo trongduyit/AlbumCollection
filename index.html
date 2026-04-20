@@ -2168,7 +2168,142 @@
       .pm-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
       .pm-img-del { top: auto; bottom: 60px; right: 24px; }
     }
-  </style>
+  
+    /* ===== CUTE SECTION EFFECTS ===== */
+    
+    /* Hero: Sparkle floating particles */
+    .hero { position: relative; overflow: hidden; }
+    .sparkle {
+      position: absolute;
+      width: 6px; height: 6px;
+      background: radial-gradient(circle, rgba(255,255,255,0.9), transparent);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: sparkleFloat 4s ease-in-out infinite;
+    }
+    @keyframes sparkleFloat {
+      0% { opacity: 0; transform: translateY(0) scale(0); }
+      20% { opacity: 1; transform: translateY(-30px) scale(1); }
+      80% { opacity: 0.6; transform: translateY(-120px) scale(0.8); }
+      100% { opacity: 0; transform: translateY(-180px) scale(0); }
+    }
+
+    /* Slideshow: Gentle bounce-in */
+    .slideshow-section .section-header { animation: gentleBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+    @keyframes gentleBounce {
+      0% { opacity: 0; transform: translateY(40px) scale(0.9); }
+      60% { transform: translateY(-8px) scale(1.02); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Dataset: Staggered card tilt */
+    .album-dataset .photo-item { animation: cardTilt 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .album-dataset .photo-item:nth-child(odd) { --tilt: 2deg; }
+    .album-dataset .photo-item:nth-child(even) { --tilt: -2deg; }
+    @keyframes cardTilt {
+      0% { opacity: 0; transform: rotate(var(--tilt, 2deg)) translateY(30px) scale(0.9); }
+      100% { opacity: 1; transform: rotate(0deg) translateY(0) scale(1); }
+    }
+
+    /* Upload: Rainbow border pulse */
+    .upload-section .upload-zone {
+      background-size: 300% 300%;
+      animation: rainbowBorder 4s ease infinite;
+    }
+    @keyframes rainbowBorder {
+      0% { border-color: var(--pink-accent); box-shadow: 0 0 20px rgba(201,134,154,0.2); }
+      33% { border-color: var(--blue-sea); box-shadow: 0 0 20px rgba(138,172,200,0.2); }
+      66% { border-color: var(--green-light); box-shadow: 0 0 20px rgba(168,191,160,0.2); }
+      100% { border-color: var(--pink-accent); box-shadow: 0 0 20px rgba(201,134,154,0.2); }
+    }
+    .upload-section .upload-icon { animation: wiggle 2s ease-in-out infinite; }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-8deg); }
+      75% { transform: rotate(8deg); }
+    }
+
+    /* Personal Album: Heartbeat hover */
+    .album-personal .personal-item:hover {
+      animation: heartbeat 0.6s ease-in-out;
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      50% { transform: scale(0.98); }
+      75% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    /* Footer: Gradient text shimmer */
+    .footer .footer-text {
+      background: linear-gradient(90deg, var(--pink-accent), var(--blue-sea), var(--gold-light), var(--pink-accent));
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textShimmer 5s ease infinite;
+    }
+    @keyframes textShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Section reveal with different effects */
+    .section.reveal-bounce { animation: revealBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+    @keyframes revealBounce {
+      0% { opacity: 0; transform: translateY(60px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cute cursor sparkle trail */
+    .cursor-sparkle {
+      position: fixed;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      animation: cursorPop 0.6s ease forwards;
+    }
+    @keyframes cursorPop {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0) translateY(-20px); }
+    }
+
+    /* Floating hearts for personal album */
+    .float-heart {
+      position: fixed;
+      font-size: 1.2rem;
+      pointer-events: none;
+      z-index: 999;
+      animation: floatHeart 2s ease forwards;
+    }
+    @keyframes floatHeart {
+      0% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+      50% { opacity: 0.8; transform: translateY(-60px) scale(1.2) rotate(15deg); }
+      100% { opacity: 0; transform: translateY(-150px) scale(0.5) rotate(-15deg); }
+    }
+
+    /* Nav link hover sparkle */
+    .nav-links a:hover { position: relative; }
+    .nav-links a::after {
+      content: '\2728';
+      position: absolute;
+      right: -4px;
+      top: -4px;
+      font-size: 0.6rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .nav-links a:hover::after { opacity: 1; animation: sparkleNav 0.5s ease; }
+    @keyframes sparkleNav {
+      0% { transform: scale(0) rotate(0deg); }
+      50% { transform: scale(1.3) rotate(180deg); }
+      100% { transform: scale(1) rotate(360deg); }
+    }
+
+    </style>
 </head>
 <body>
 
@@ -2183,7 +2318,7 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#slideshow"><span>🎬</span> Chiếu Ảnh</a></li>
+        <li><a href="#slideshow"><span>🎬</span> Trình diễn Album ảnh</a></li>
         <li><a href="#dataset"><span>📸</span> Album HN</a></li>
         <li><a href="#upload"><span>📷</span> Upload</a></li>
         <li><a href="#personal"><span>💎</span> Album Riêng</a></li>
@@ -2319,7 +2454,7 @@
   <!-- SLIDESHOW SECTION -->
   <section class="section slideshow-section" id="slideshow">
     <div class="section-header reveal">
-      <h2 class="section-title">Chiếu Ảnh</h2>
+      <h2 class="section-title">Trình diễn Album ảnh</h2>
       <p class="section-subtitle">Những khoảnh khắc đẹp nhất của Hà Nội</p>
     </div>
     <div class="slideshow-wrapper reveal">
@@ -2730,9 +2865,120 @@ document.addEventListener('DOMContentLoaded', () => {
         await renderPersonal();
       });
   
-      document.getElementById('navExport').addEventListener('click', () => {
+      document.getElementById('navExport').addEventListener('click', async () => {
         manageDropdown.classList.remove('open');
-        alert('Tính năng tải ZIP sẽ sớm ra mắt!');
+        const images = await getAllImages();
+        if (!images || images.length === 0) {
+          alert('Album riêng trống! Hãy thêm ảnh trước.');
+          return;
+        }
+        try {
+          // Build ZIP manually (no external library needed)
+          const zipParts = [];
+          const centralDir = [];
+          let offset = 0;
+          const encoder = new TextEncoder();
+
+          for (let i = 0; i < images.length; i++) {
+            const img = images[i];
+            const blob = img.data instanceof Blob ? img.data : new Blob([img.data]);
+            const arrayBuf = await blob.arrayBuffer();
+            const fileData = new Uint8Array(arrayBuf);
+            const ext = blob.type === 'image/png' ? 'png' : (blob.type === 'image/webp' ? 'webp' : 'jpg');
+            const fileName = `album_${String(i + 1).padStart(3, '0')}.${ext}`;
+            const fileNameBytes = encoder.encode(fileName);
+
+            // CRC32
+            let crc = 0xFFFFFFFF;
+            for (let j = 0; j < fileData.length; j++) {
+              crc ^= fileData[j];
+              for (let k = 0; k < 8; k++) crc = (crc >>> 1) ^ (crc & 1 ? 0xEDB88320 : 0);
+            }
+            crc ^= 0xFFFFFFFF;
+
+            // Local file header (30 + name + data)
+            const localHeader = new Uint8Array(30 + fileNameBytes.length);
+            const lhView = new DataView(localHeader.buffer);
+            lhView.setUint32(0, 0x04034b50, true);  // signature
+            lhView.setUint16(4, 20, true);            // version needed
+            lhView.setUint16(6, 0, true);             // flags
+            lhView.setUint16(8, 0, true);             // compression: store
+            lhView.setUint16(10, 0, true);            // mod time
+            lhView.setUint16(12, 0, true);            // mod date
+            lhView.setUint32(14, crc >>> 0, true);    // crc32
+            lhView.setUint32(18, fileData.length, true); // compressed size
+            lhView.setUint32(22, fileData.length, true); // uncompressed size
+            lhView.setUint16(26, fileNameBytes.length, true); // name length
+            lhView.setUint16(28, 0, true);             // extra length
+            localHeader.set(fileNameBytes, 30);
+
+            // Central directory entry
+            const cdEntry = new Uint8Array(46 + fileNameBytes.length);
+            const cdView = new DataView(cdEntry.buffer);
+            cdView.setUint32(0, 0x02014b50, true);
+            cdView.setUint16(4, 20, true);
+            cdView.setUint16(6, 20, true);
+            cdView.setUint16(8, 0, true);
+            cdView.setUint16(10, 0, true);
+            cdView.setUint16(12, 0, true);
+            cdView.setUint16(14, 0, true);
+            cdView.setUint32(16, crc >>> 0, true);
+            cdView.setUint32(20, fileData.length, true);
+            cdView.setUint32(24, fileData.length, true);
+            cdView.setUint16(28, fileNameBytes.length, true);
+            cdView.setUint16(30, 0, true);
+            cdView.setUint16(32, 0, true);
+            cdView.setUint16(34, 0, true);
+            cdView.setUint16(36, 0, true);
+            cdView.setUint32(38, 0x20, true);
+            cdView.setUint32(42, offset, true);
+            cdEntry.set(fileNameBytes, 46);
+            centralDir.push(cdEntry);
+
+            zipParts.push(localHeader, fileData);
+            offset += localHeader.length + fileData.length;
+          }
+
+          // End of central directory
+          let cdSize = 0;
+          centralDir.forEach(e => cdSize += e.length);
+          const eocd = new Uint8Array(22);
+          const eocdView = new DataView(eocd.buffer);
+          eocdView.setUint32(0, 0x06054b50, true);
+          eocdView.setUint16(4, 0, true);
+          eocdView.setUint16(6, 0, true);
+          eocdView.setUint16(8, images.length, true);
+          eocdView.setUint16(10, images.length, true);
+          eocdView.setUint32(12, cdSize, true);
+          eocdView.setUint32(16, offset, true);
+          eocdView.setUint16(20, 0, true);
+
+          const zipBlob = new Blob([...zipParts, ...centralDir, eocd], { type: 'application/zip' });
+          const url = URL.createObjectURL(zipBlob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'HaNoiDiuDang_Album.zip';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+
+          // Cute floating hearts effect on download
+          for (let i = 0; i < 8; i++) {
+            setTimeout(() => {
+              const heart = document.createElement('div');
+              heart.className = 'float-heart';
+              heart.textContent = ['\U0001f496','\U0001f338','\u2728','\U0001f495','\U0001f380'][Math.floor(Math.random()*5)];
+              heart.style.left = (Math.random() * window.innerWidth) + 'px';
+              heart.style.top = (window.innerHeight - 50) + 'px';
+              document.body.appendChild(heart);
+              setTimeout(() => heart.remove(), 2000);
+            }, i * 150);
+          }
+        } catch (err) {
+          console.error('ZIP export error:', err);
+          alert('Lỗi khi tạo file ZIP. Vui lòng thử lại.');
+        }
       });
   
       // Dropdown: Cài Đặt
@@ -3647,6 +3893,50 @@ document.addEventListener('DOMContentLoaded', () => {
           console.error('Init error:', e);
         }
       })();
+
+    // Cursor sparkle trail
+    let sparkleThrottle = 0;
+    document.addEventListener('mousemove', (e) => {
+      if (Date.now() - sparkleThrottle < 80) return;
+      sparkleThrottle = Date.now();
+      const sparkle = document.createElement('div');
+      sparkle.className = 'cursor-sparkle';
+      sparkle.style.left = e.clientX + 'px';
+      sparkle.style.top = e.clientY + 'px';
+      sparkle.style.background = ['#C9869A','#8AACC8','#A8BFA0','#D4AF7A','#EBC8D8'][Math.floor(Math.random()*5)];
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 600);
+    });
+
+    // Hero sparkles
+    function createSparkles() {
+      const hero = document.getElementById('hero');
+      if (!hero) return;
+      for (let i = 0; i < 15; i++) {
+        const sp = document.createElement('div');
+        sp.className = 'sparkle';
+        sp.style.left = Math.random() * 100 + '%';
+        sp.style.top = Math.random() * 100 + '%';
+        sp.style.animationDelay = (Math.random() * 4) + 's';
+        sp.style.animationDuration = (3 + Math.random() * 3) + 's';
+        hero.appendChild(sp);
+      }
+    }
+    createSparkles();
+
+    // Float hearts on personal album hover
+    document.getElementById('personal')?.addEventListener('click', (e) => {
+      if (e.target.closest('.personal-item')) {
+        const heart = document.createElement('div');
+        heart.className = 'float-heart';
+        heart.textContent = ['\U0001f496','\U0001f338','\u2728'][Math.floor(Math.random()*3)];
+        heart.style.left = e.clientX + 'px';
+        heart.style.top = e.clientY + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2000);
+      }
+    });
+
 });
   </script>
 </body>
