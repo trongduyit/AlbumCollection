@@ -2189,7 +2189,7 @@
     }
 
     /* Slideshow: Gentle bounce-in */
-    .slideshow-section .section-header { animation: gentleBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+    .slideshow-section .section-header.visible { animation: gentleBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
     @keyframes gentleBounce {
       0% { opacity: 0; transform: translateY(40px) scale(0.9); }
       60% { transform: translateY(-8px) scale(1.02); }
@@ -2197,7 +2197,12 @@
     }
 
     /* Dataset: Staggered card tilt */
-    .album-dataset .photo-item { animation: cardTilt 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .reveal.visible .photo-item { animation: cardTilt 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .reveal.visible .photo-item:nth-child(2) { animation-delay: 0.1s; }
+    .reveal.visible .photo-item:nth-child(3) { animation-delay: 0.15s; }
+    .reveal.visible .photo-item:nth-child(4) { animation-delay: 0.2s; }
+    .reveal.visible .photo-item:nth-child(5) { animation-delay: 0.25s; }
+    .reveal.visible .photo-item:nth-child(6) { animation-delay: 0.3s; }
     .album-dataset .photo-item:nth-child(odd) { --tilt: 2deg; }
     .album-dataset .photo-item:nth-child(even) { --tilt: -2deg; }
     @keyframes cardTilt {
@@ -2206,7 +2211,7 @@
     }
 
     /* Upload: Rainbow border pulse */
-    .upload-section .upload-zone {
+    .upload-section .reveal.visible .upload-zone, .upload-section .upload-zone {
       background-size: 300% 300%;
       animation: rainbowBorder 4s ease infinite;
     }
@@ -2217,6 +2222,7 @@
       100% { border-color: var(--pink-accent); box-shadow: 0 0 20px rgba(201,134,154,0.2); }
     }
     .upload-section .upload-icon { animation: wiggle 2s ease-in-out infinite; }
+    .reveal.visible ~ .upload-zone .upload-icon, .upload-section .upload-icon { animation: wiggle 2s ease-in-out infinite; }
     @keyframes wiggle {
       0%, 100% { transform: rotate(0deg); }
       25% { transform: rotate(-8deg); }
@@ -2703,13 +2709,13 @@
       "assets/images/z7740997134978_7fe67e3ba592259f846ec9653b87d611.jpg",
       "assets/images/z7740997141423_28436f4eb44d5869f47e58e7c1a44ea0.jpg",
       "assets/images/z7740997141653_06b224836161606ffbd416a37c3d61a2.jpg",
-      "assets/images/z7740997149876_0fb62099f2cf5227b1668dad4e322c6.jpg",
+      "assets/images/z7740997149876_0fb620f99f2cf5227b1668dad4e322c6.jpg",
       "assets/images/z7740997150473_9e8b4e62888c11181430b5bd70e53645.jpg",
       "assets/images/z7740997159523_686c61831382cbd96194e931fae64f23.jpg",
       "assets/images/z7740997162265_d7a5dfffb5c19c0b53b8ec11e750baa7.jpg",
       "assets/images/z7740997165288_3c9a688260e0a7919538d5770850eec7.jpg",
-      "assets/images/z7740997165452_c4761caeac627387c52d6e2fc2aaac80.jpg",
-      "assets/images/z7740997175344_eb64c5ceec3419f9b149c9c99dda3dc7e.jpg",
+      "assets/images/z7740997165452_c4761caeac627387c52d6e2fc6aaac80.jpg",
+      "assets/images/z7740997175344_eb64c5ceec3419f9b1499c99dda3dc7e.jpg",
       "assets/images/z7740997180113_98c46db97f1b0d6b05cf32dfbc701a2c.jpg",
       "assets/images/z7740997180446_ed1169227c345e5a1ac8168c01f2b113.jpg",
       "assets/images/z7740997188623_97abbade42420040b34d9f0c51896e39.jpg",
@@ -2717,7 +2723,7 @@
       "assets/images/z7740997194928_78b1f7073326a74b9fe839bf6772e729.jpg",
       "assets/images/z7740997198082_4d10073181ca9c7a5a1e614b0b6d9bd1.jpg",
       "assets/images/z7740997202132_9a8d0cdf97e1bf46eef0ba25c2dd7276.jpg",
-      "assets/images/z7740997208035_7a8ee6818748d4bbbb0055f4a5c9bf3.jpg",
+      "assets/images/z7740997208035_7a8eea6818748d4bbbb0055f4a5c9bf3.jpg",
       "assets/images/z7740997215321_7bd6527a509ec6631236ee1eb1a0feac.jpg",
       "assets/images/z7740997215551_eb58271d799959522c7e62ab477bc328.jpg",
       "assets/images/z7740997221704_a3ca5a846e179649493f0e123eb9804b.jpg",
@@ -2728,7 +2734,7 @@
       "assets/images/z7740997327093_7c91fa3d5e4377c0065d135620f3a501.jpg",
       "assets/images/z7740997359304_c34980ba168e764517037485cb2363ac.jpg",
       "assets/images/z7740997381761_bbb0dea3087ac1e7acad664ff953a993.jpg",
-      "assets/images/z7740997390628_4ae4ba84ceb861c3cf3c6655d1a0415a.jpg",
+      "assets/images/z7740997390628_4ae4ba84ceb861c3cf3c6651d1a0415a.jpg",
       "assets/images/z7740997422142_99388f521bcbf4ba42d4d1087b0e57d8.jpg",
       "assets/images/z7741007733637_00aa2e9e6a918c57446fd2bd41837745.jpg",
       "assets/images/z7741137314427_0429cffe6202f5d366ac3f7c56ecdd6c.jpg"
@@ -2982,7 +2988,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   
       // Dropdown: Cài Đặt
-      const settingsDropdown = document.querySelector('.nav-dropdown:last-of-type');
+      const settingsDropdown = document.getElementById('navSettingsToggle').closest('.nav-dropdown');
       const settingsToggle = document.getElementById('navSettingsToggle');
       settingsToggle.addEventListener('click', (e) => {
         e.preventDefault();
