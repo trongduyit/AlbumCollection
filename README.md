@@ -1,8 +1,72 @@
 # Hà Nội Dịu Dàng 🌸
 
-Landing page nghệ thuật — Album ảnh Hà Nội dịu dàng, có upload ảnh cá nhân và video nền.
+**Hanoi Landing** - A gentle landing page showcasing Hanoi's artistic beauty with an interactive photo album.
 
-## ✨ Tính năng
+> An artistic corner of Hanoi in autumn light — A curated photo album experience
+
+[English](#english) | [Tiếng Việt](#tiếng-việt)
+
+---
+
+## English
+
+### ✨ Features
+
+- 🎬 **Animated Hero Video** - Auto-playing background video (muted, looping)
+- 📸 **Photo Dataset** - 42 curated images of Hanoi displayed in an elegant album
+- 📷 **Personal Photo Upload** - Upload and manage your own photos (stored locally with IndexedDB)
+- 🎵 **Background Music** - Toggle on/off with customizable audio track
+- 🖼️ **Lightbox Gallery** - Full-screen image viewer with navigation controls
+- 📱 **Fully Responsive** - Beautiful on mobile, tablet, and desktop devices
+
+### 🚀 Quick Start
+
+**Option 1: Direct (No setup needed)**
+```bash
+# Just double-click index.html or:
+start index.html
+```
+
+**Option 2: Local Server (Recommended)**
+```bash
+# Using Python 3
+python -m http.server 8080
+# Then visit http://localhost:8080
+
+# OR using Node.js
+npm install
+npm start
+```
+
+### 📁 Project Structure
+
+```
+hanoi-landing/
+├── index.html           # Main page
+├── assets/
+│   ├── images/          # 42+ Photos
+│   ├── video/           # background.mp4
+│   └── music/           # Music files
+├── package.json
+└── README.md
+```
+
+### 🌐 Deploy
+
+- **GitHub Pages** - Free & easy
+- **Netlify** - Free tier
+- **Vercel** - High performance
+- **Render** - Static site hosting
+
+### 📄 License
+
+MIT License
+
+---
+
+## Tiếng Việt
+
+### ✨ Tính năng
 
 - 🎬 Video nền hero tự động phát (muted, loop)
 - 📸 42 ảnh dataset Hà Nội hiển thị trong album
@@ -11,27 +75,13 @@ Landing page nghệ thuật — Album ảnh Hà Nội dịu dàng, có upload �
 - 🖼️ Lightbox xem ảnh lớn — có prev/next
 - 📱 Responsive — đẹp trên mobile, tablet, desktop
 
-## 🎨 Design
+### 🎨 Design
 
 - Màu sắc: hồng phấn (#EBC8D8) + xanh lavender (#B5C7D3) + trắng ngà (#FAF7F4)
 - Font: Playfair Display (heading) + Nunito (body)
 - Animation: scroll reveal, hover zoom, lightbox fade
 
-## 📁 Cấu trúc
-
-```
-hanoi-landing/
-├── index.html              ← Trang chính (tất cả CSS/JS inline)
-├── assets/
-│   ├── images/             ← 42 ảnh dataset
-│   ├── video/
-│   │   └── background.mp4  ← Video nền hero
-│   └── music/
-│       └── music.mp3       ← Nhạc nền (thêm file của bạn)
-└── README.md
-```
-
-## 🚀 Chạy local
+### 🚀 Chạy local
 
 **Cách 1 — Mở trực tiếp:**
 ```bash
@@ -45,7 +95,7 @@ open index.html
 xdg-open index.html
 ```
 
-**Cách 2 — Local server (khuyên dùng để test đầy đủ):**
+**Cách 2 — Local server (khuyên dùng):**
 ```bash
 # Python 3
 python -m http.server 8080
@@ -53,25 +103,21 @@ python -m http.server 8080
 # Sau đó mở: http://localhost:8080
 ```
 
-## 🌐 Deploy lên Render.com (Static)
+### 🌐 Deploy
 
-1. **Tạo repo GitHub** chứa toàn bộ project `hanoi-landing/`
-2. Đăng nhập [Render.com](https://render.com) → **New → Static Site**
-3. Kết nối repo GitHub, chọn branch `main`
-4. **Build Command:** (để trống — không cần)
-5. **Publish Directory:** `.`
-6. Click **Create Static Site** → done!
+1. Tạo repo GitHub
+2. Chọn hosting: Netlify, Vercel, GitHub Pages, hoặc Render
+3. Kết nối repo → Deploy
+4. Done! 🎉
 
-> ⚠️ Nếu có file nhạc, đặt vào `assets/music/music.mp3` trước khi deploy.
+### 🎵 Tùy chỉnh nhạc nền
 
-## 🎵 Thêm nhạc nền
+Thay thế file: `assets/music/music.mp3`
 
-Đặt file MP3 vào: `assets/music/music.mp3`
+### 💾 Lưu trữ
 
-## 💾 Lưu trữ
-
-Ảnh upload được lưu trong **IndexedDB** của trình duyệt — không tốn server, dữ liệu riêng tư. Xóa dữ liệu trình duyệt sẽ mất ảnh đã upload.
+Ảnh upload được lưu trong **IndexedDB** của trình duyệt — riêng tư, không cần server.
 
 ---
 
-*Một góc Hà Nội trong ánh nắng mùa thu* 🌸
+*Một góc Hà Nội dịu dàng* 🌸

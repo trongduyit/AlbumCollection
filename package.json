@@ -1,0 +1,28 @@
+{
+  "name": "hanoi-landing",
+  "version": "1.0.0",
+  "description": "Hà Nội Dịu Dàng - Landing page nghệ thuật với album ảnh Hà Nội",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8080 -o",
+    "dev": "http-server -p 8080 -c-1",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'No build needed for static site'"
+  },
+  "keywords": [
+    "hanoi",
+    "landing",
+    "photography",
+    "art",
+    "gallery"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/hanoi-landing.git"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

@@ -800,7 +800,410 @@
       background: linear-gradient(180deg, var(--cream) 0%, var(--pink-light) 100%);
     }
 
-    /* View toggle */
+    /* Album Controls bar */
+    .album-ctrl {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      padding: 0 4px;
+    }
+
+    .album-ctrl-right {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .album-ctrl-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(201,134,154,0.4);
+      background: white;
+      color: var(--pink-accent);
+      font-size: 0.88rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .album-ctrl-btn:hover {
+      background: var(--pink-accent);
+      color: white;
+      border-color: var(--pink-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(201,134,154,0.3);
+    }
+
+    /* Add images zone */
+    .ds-add-zone {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .ds-add-inner {
+      background: white;
+      border-radius: 20px;
+      border: 2px solid var(--pink-accent);
+      padding: 24px;
+      box-shadow: 0 8px 32px rgba(201,134,154,0.15);
+    }
+
+    .ds-add-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .ds-add-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--brown-dark);
+    }
+
+    .ds-add-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(61,48,41,0.06);
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brown-dark);
+      transition: background 0.2s;
+    }
+
+    .ds-add-close:hover { background: rgba(61,48,41,0.12); }
+
+    .ds-add-upload {
+      border: 2px dashed var(--pink-accent);
+      border-radius: 16px;
+      padding: 40px 24px;
+      text-align: center;
+      background: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .ds-add-upload:hover, .ds-add-upload.drag-over {
+      border-style: solid;
+      background: rgba(201,134,154,0.08);
+      transform: scale(1.01);
+    }
+
+    .ds-add-upload input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .ds-add-icon { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+    .ds-add-text { font-size: 1rem; color: var(--brown-light); margin-bottom: 8px; }
+    .ds-add-text strong { color: var(--pink-accent); }
+    .ds-add-upload small { font-size: 0.8rem; color: var(--brown-light); }
+
+    .ds-add-preview { display: none; margin-top: 20px; }
+    .ds-add-preview.active { display: block; }
+    .ds-add-preview-title { text-align: center; margin-bottom: 12px; color: var(--brown-light); }
+    .ds-add-preview-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 16px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .ds-add-preview-item {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid white;
+      animation: previewIn 0.3s ease;
+    }
+
+    .ds-add-preview-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    .ds-add-preview-remove {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(176,107,127,0.9);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ds-add-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .ds-add-confirm {
+      padding: 10px 28px;
+      border-radius: 50px;
+      border: none;
+      background: var(--pink-accent);
+      color: white;
+      font-size: 0.95rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .ds-add-confirm:hover {
+      background: var(--pink-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(201,134,154,0.3);
+    }
+
+    .ds-add-cancel {
+      padding: 10px 24px;
+      border-radius: 50px;
+      border: 1.5px solid var(--pink-light);
+      background: white;
+      color: var(--brown-light);
+      font-size: 0.95rem;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .ds-add-cancel:hover { background: var(--pink-light); }
+
+    /* ===== Dataset Fullscreen Viewer ===== */
+    .ds-fs-viewer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(0,0,0,0.95);
+      flex-direction: column;
+    }
+
+    .ds-fs-viewer.active { display: flex; }
+
+    .ds-fs-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .ds-fs-title {
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+
+    .ds-fs-info {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+    }
+
+    .ds-fs-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .ds-fs-btn {
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .ds-fs-btn-close {
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    .ds-fs-btn-edit {
+      background: var(--pink-accent);
+      color: white;
+    }
+
+    .ds-fs-track {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ds-fs-img-wrap {
+      position: relative;
+      max-width: 85vw;
+      max-height: 75vh;
+    }
+
+    .ds-fs-img {
+      max-width: 85vw;
+      max-height: 75vh;
+      border-radius: 16px;
+      object-fit: contain;
+      animation: fsImgIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes fsImgIn {
+      from { opacity: 0; transform: scale(0.85) rotate(-2deg); }
+      to { opacity: 1; transform: scale(1) rotate(0); }
+    }
+
+    .ds-fs-img.fade-out {
+      animation: fsImgOut 0.3s ease forwards;
+    }
+
+    @keyframes fsImgOut {
+      to { opacity: 0; transform: scale(0.95); }
+    }
+
+    /* Image transition effects */
+    .ds-fs-img.effect-fade { animation: imgFade 0.8s ease forwards; }
+    .ds-fs-img.effect-zoom { animation: imgZoom 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .ds-fs-img.effect-slide { animation: imgSlide 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .ds-fs-img.effect-spin { animation: imgSpin 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .ds-fs-img.effect-blur { animation: imgBlur 0.8s ease forwards; }
+
+    @keyframes imgFade {
+      0% { opacity: 0; transform: scale(0.9); filter: brightness(0.5); }
+      100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+    }
+
+    @keyframes imgZoom {
+      0% { opacity: 0; transform: scale(0.7); filter: blur(8px); }
+      100% { opacity: 1; transform: scale(1); filter: blur(0); }
+    }
+
+    @keyframes imgSlide {
+      0% { opacity: 0; transform: translateX(100px) rotate(3deg); }
+      100% { opacity: 1; transform: translateX(0) rotate(0); }
+    }
+
+    @keyframes imgSpin {
+      0% { opacity: 0; transform: rotate(-10deg) scale(0.8); }
+      100% { opacity: 1; transform: rotate(0deg) scale(1); }
+    }
+
+    @keyframes imgBlur {
+      0% { opacity: 0; filter: blur(20px) brightness(1.5); transform: scale(1.05); }
+      100% { opacity: 1; filter: blur(0) brightness(1); transform: scale(1); }
+    }
+
+    .ds-fs-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .ds-fs-nav:hover { background: rgba(255,255,255,0.25); }
+    .ds-fs-prev { left: 16px; }
+    .ds-fs-next { right: 16px; }
+
+    .ds-fs-bottombar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 16px;
+      background: rgba(0,0,0,0.5);
+      flex-wrap: wrap;
+    }
+
+    .ds-fs-effect-btn {
+      padding: 6px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.8rem;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .ds-fs-effect-btn:hover,
+    .ds-fs-effect-btn.active {
+      background: var(--pink-accent);
+      color: white;
+      border-color: var(--pink-accent);
+    }
+
+    .ds-fs-counter {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .ds-fs-del-btn {
+      padding: 6px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(220,38,38,0.5);
+      background: transparent;
+      color: rgba(220,38,38,0.8);
+      font-size: 0.8rem;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .ds-fs-del-btn:hover {
+      background: rgba(220,38,38,0.8);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .album-ctrl { flex-direction: column; align-items: stretch; }
+      .album-ctrl-right { justify-content: center; }
+      .ds-fs-nav { width: 40px; height: 40px; font-size: 1.2rem; }
+      .ds-fs-bottombar { gap: 8px; }
+    }
     .view-toggle {
       display: flex;
       justify-content: center;
@@ -1938,13 +2341,76 @@
       <h2 class="section-title">Góc Hà Nội</h2>
       <p class="section-subtitle">42 khoảnh khắc từ khắp Hà Nội</p>
     </div>
-    <div class="view-toggle reveal">
-      <button class="view-btn active" data-view="grid">⊞ Lưới</button>
-      <button class="view-btn" data-view="masonry">▦ Ghép</button>
-      <button class="view-btn" data-view="list">☰ Danh sách</button>
+
+    <!-- Album Controls -->
+    <div class="album-ctrl reveal">
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="grid">⊞ Lưới</button>
+        <button class="view-btn" data-view="masonry">▦ Ghép</button>
+        <button class="view-btn" data-view="list">☰ Danh sách</button>
+      </div>
+      <div class="album-ctrl-right">
+        <button class="album-ctrl-btn" id="datasetAddBtn" title="Thêm ảnh vào album">➕ Thêm Ảnh</button>
+        <button class="album-ctrl-btn" id="datasetSlideshowBtn" title="Chiếu album">🎬 Chiếu Album</button>
+        <button class="album-ctrl-btn" id="datasetFullscreenBtn" title="Toàn màn hình">🖥️ Toàn Màn</button>
+      </div>
     </div>
+
+    <!-- Add Images Zone (Ẩn/Hiện) -->
+    <div class="ds-add-zone" id="dsAddZone" style="display:none">
+      <div class="ds-add-inner">
+        <div class="ds-add-header">
+          <span class="ds-add-title">📷 Thêm Ảnh Vào Album Góc Hà Nội</span>
+          <button class="ds-add-close" id="dsAddClose">×</button>
+        </div>
+        <div class="ds-add-upload" id="dsAddUpload">
+          <span class="ds-add-icon">🖼️</span>
+          <p class="ds-add-text">Kéo thả ảnh mới hoặc <strong>click để chọn</strong></p>
+          <small>JPG, PNG, WebP, GIF — Ảnh sẽ thêm vào cuối album</small>
+          <input type="file" id="dsAddInput" accept="image/*" multiple>
+        </div>
+        <div class="ds-add-preview" id="dsAddPreview" style="display:none">
+          <p class="ds-add-preview-title">📸 Đã chọn <strong id="dsAddCount">0</strong> ảnh</p>
+          <div class="ds-add-preview-grid" id="dsAddPreviewGrid"></div>
+          <div class="ds-add-actions">
+            <button class="ds-add-confirm" id="dsAddConfirm">✅ Xác Nhận Thêm</button>
+            <button class="ds-add-cancel" id="dsAddCancelBtn">✕ Hủy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo Grid -->
     <div class="photo-grid grid reveal" id="datasetGrid"></div>
   </section>
+
+  <!-- FULLSCREEN VIEWER -->
+  <div class="ds-fs-viewer" id="dsFsViewer">
+    <div class="ds-fs-topbar">
+      <span class="ds-fs-title">🖼️ Album Góc Hà Nội</span>
+      <span class="ds-fs-info" id="dsFsInfo">Ảnh 1 / 42</span>
+      <div class="ds-fs-actions">
+        <button class="ds-fs-btn ds-fs-btn-edit" id="dsFsEditBtn" title="Sửa ảnh này">✏️ Sửa</button>
+        <button class="ds-fs-btn ds-fs-btn-close" id="dsFsClose">× Đóng</button>
+      </div>
+    </div>
+    <div class="ds-fs-track" id="dsFsTrack">
+      <button class="ds-fs-nav ds-fs-prev" id="dsFsPrev">‹</button>
+      <div class="ds-fs-img-wrap">
+        <img class="ds-fs-img" id="dsFsImg" src="" alt="">
+      </div>
+      <button class="ds-fs-nav ds-fs-next" id="dsFsNext">›</button>
+    </div>
+    <div class="ds-fs-bottombar">
+      <button class="ds-fs-effect-btn active" data-effect="fade">✨ Fade</button>
+      <button class="ds-fs-effect-btn" data-effect="zoom">🔍 Zoom</button>
+      <button class="ds-fs-effect-btn" data-effect="slide">➡️ Slide</button>
+      <button class="ds-fs-effect-btn" data-effect="spin">💫 Spin</button>
+      <button class="ds-fs-effect-btn" data-effect="blur">🌫️ Blur</button>
+      <span class="ds-fs-counter" id="dsFsCounter">1 / 42</span>
+      <button class="ds-fs-del-btn" id="dsFsDelBtn">🗑️ Xóa Ảnh</button>
+    </div>
+  </div>
 
   <!-- UPLOAD -->
   <section class="section upload-section" id="upload">
