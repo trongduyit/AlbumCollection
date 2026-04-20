@@ -1341,6 +1341,81 @@
       margin: 0 auto;
     }
 
+    .upload-step {
+      margin-bottom: 16px;
+    }
+    .upload-step-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .upload-album-name-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border: 2px solid rgba(201,134,154,0.25);
+      border-radius: 14px;
+      padding: 4px 14px;
+      transition: border-color 0.3s;
+    }
+    .upload-album-name-box:focus-within {
+      border-color: var(--pink-accent);
+      box-shadow: 0 0 0 3px rgba(201,134,154,0.1);
+    }
+    .upload-album-name-icon { font-size: 1.2rem; }
+    .upload-album-name-input {
+      flex: 1;
+      padding: 10px 4px;
+      border: none;
+      background: transparent;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      outline: none;
+    }
+    .upload-album-name-input::placeholder { color: var(--brown-light); opacity: 0.5; }
+
+    .upload-album-existing {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .upload-album-existing-label {
+      font-size: 0.85rem;
+      color: var(--brown-light);
+      white-space: nowrap;
+    }
+    .upload-album-select {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 2px solid rgba(201,134,154,0.2);
+      background: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--brown-dark);
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .upload-album-select:focus { border-color: var(--pink-accent); }
+
+    .upload-album-status {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      min-height: 20px;
+    }
+    .upload-album-status.success { color: var(--green-accent); }
+    .upload-album-status.error { color: #e74c3c; }
+
     .upload-zone {
       border: 2px dashed var(--pink-accent);
       border-radius: 24px;
@@ -1372,6 +1447,16 @@
       inset: 0;
       opacity: 0;
       cursor: pointer;
+    }
+    .upload-zone.disabled input[type="file"] {
+      pointer-events: none;
+    }
+
+    .upload-zone.disabled {
+      opacity: 0.45;
+      pointer-events: none;
+      border-color: #ccc;
+      cursor: not-allowed;
     }
 
     .upload-icon {
@@ -1527,6 +1612,164 @@
       background: linear-gradient(180deg, var(--blue-lav) 0%, var(--cream) 100%);
     }
 
+    /* Album Collection Bar */
+    .album-collection-bar {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      padding: 0 24px;
+    }
+
+    .album-tabs-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 8px 12px;
+      border: 1px solid rgba(201,134,154,0.15);
+    }
+
+    .album-tab {
+      padding: 6px 16px;
+      border-radius: 50px;
+      border: 2px solid transparent;
+      background: transparent;
+      color: var(--brown-light);
+      font-size: 0.88rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .album-tab:hover {
+      background: var(--pink-light);
+      color: var(--pink-accent);
+    }
+
+    .album-tab.active {
+      background: var(--pink-accent);
+      color: white;
+      border-color: var(--pink-dark);
+    }
+
+    .album-tab-add {
+      background: rgba(201,134,154,0.1);
+      border: 2px dashed var(--pink-accent);
+      color: var(--pink-accent);
+    }
+
+    .album-tab-add:hover {
+      background: var(--pink-accent);
+      color: white;
+    }
+
+    .album-tab .album-tab-count {
+      font-size: 0.72rem;
+      background: rgba(255,255,255,0.4);
+      padding: 1px 6px;
+      border-radius: 10px;
+      margin-left: 4px;
+    }
+
+    .album-tab.active .album-tab-count {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .album-tab-action {
+      background: rgba(201,134,154,0.08);
+      color: var(--brown-light);
+      font-size: 0.82rem;
+      margin-left: auto;
+    }
+
+    .album-tab-action:hover {
+      background: var(--pink-light);
+      color: var(--pink-accent);
+    }
+
+    .album-tab-danger {
+      color: #e74c3c;
+    }
+
+    .album-tab-danger:hover {
+      background: #fde8e8;
+      color: #c0392b;
+    }
+
+    /* Create Album Dialog */
+    .album-create-dialog {
+      max-width: 600px;
+      margin: 0 auto 16px;
+      padding: 0 24px;
+    }
+
+    .album-create-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border-radius: 16px;
+      padding: 10px 16px;
+      border: 2px solid var(--pink-accent);
+      box-shadow: 0 8px 24px rgba(201,134,154,0.15);
+      animation: panelSlideIn 0.3s ease;
+    }
+
+    .album-create-icon {
+      font-size: 1.4rem;
+    }
+
+    .album-create-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+      font-family: 'Nunito', sans-serif;
+      color: var(--brown-dark);
+      background: transparent;
+    }
+
+    .album-create-input::placeholder {
+      color: var(--brown-light);
+      opacity: 0.6;
+    }
+
+    .album-create-confirm {
+      padding: 6px 16px;
+      border-radius: 50px;
+      border: none;
+      background: var(--pink-accent);
+      color: white;
+      font-size: 0.88rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .album-create-confirm:hover {
+      background: var(--pink-dark);
+    }
+
+    .album-create-cancel {
+      padding: 6px 12px;
+      border-radius: 50px;
+      border: none;
+      background: transparent;
+      color: var(--brown-light);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .album-create-cancel:hover {
+      color: var(--pink-accent);
+    }
+
     .personal-actions {
       display: flex;
       justify-content: center;
@@ -1564,6 +1807,190 @@
     .action-btn.danger:hover {
       background: #fef0f3;
       border-color: #C9869A;
+    }
+
+    .action-btn-primary {
+      background: linear-gradient(135deg, var(--pink-accent), #e8a0b4) !important;
+      color: white !important;
+      border-color: var(--pink-accent) !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 16px rgba(201,134,154,0.3);
+    }
+    .action-btn-primary:hover {
+      box-shadow: 0 6px 24px rgba(201,134,154,0.45);
+    }
+
+    .quick-create-album {
+      display: none;
+      max-width: 500px;
+      margin: 16px auto;
+      padding: 18px 22px;
+      background: linear-gradient(135deg, #fff9f0, #fff0f5);
+      border: 2px solid var(--pink-accent);
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(201,134,154,0.18);
+      animation: slideDown 0.3s ease;
+    }
+    .quick-create-album.active { display: block; }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .quick-create-album-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .quick-create-album-row {
+      display: flex;
+      gap: 10px;
+    }
+    .quick-create-album-input {
+      flex: 1;
+      padding: 10px 16px;
+      border: 2px solid rgba(201,134,154,0.3);
+      border-radius: 14px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .quick-create-album-input:focus { border-color: var(--pink-accent); }
+    .quick-create-album-input::placeholder { color: var(--brown-light); opacity: 0.5; }
+    .quick-create-album-save {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 14px;
+      background: var(--pink-accent);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .quick-create-album-save:hover { background: var(--pink-dark); }
+    .quick-create-album-cancel {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 14px;
+      background: rgba(201,134,154,0.1);
+      color: var(--brown-dark);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .quick-create-album-cancel:hover { background: rgba(201,134,154,0.2); }
+    .quick-create-album-msg {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .top-create-album-btn {
+      position: fixed;
+      top: 75px;
+      right: 24px;
+      z-index: 9999;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--pink-accent), #e8a0b4);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(201,134,154,0.45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      animation: pulseBtn 2s infinite;
+    }
+    .top-create-album-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 32px rgba(201,134,154,0.6);
+    }
+    @keyframes pulseBtn {
+      0%, 100% { box-shadow: 0 6px 24px rgba(201,134,154,0.45); }
+      50% { box-shadow: 0 6px 32px rgba(201,134,154,0.7); }
+    }
+
+    .top-create-form {
+      position: fixed;
+      top: 75px;
+      right: 24px;
+      z-index: 10000;
+      width: 350px;
+      padding: 20px;
+      background: linear-gradient(135deg, #fff9f0, #fff0f5);
+      border: 2px solid var(--pink-accent);
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(201,134,154,0.3);
+      display: none;
+    }
+    .top-create-form.active { display: block; animation: slideDown 0.3s ease; }
+    .top-create-form-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--brown-dark);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .top-create-form-row {
+      display: flex;
+      gap: 8px;
+    }
+    .top-create-form-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid rgba(201,134,154,0.3);
+      border-radius: 14px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      outline: none;
+    }
+    .top-create-form-input:focus { border-color: var(--pink-accent); }
+    .top-create-form-input::placeholder { color: var(--brown-light); opacity: 0.5; }
+    .top-create-form-save {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 14px;
+      background: var(--pink-accent);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .top-create-form-save:hover { background: var(--pink-dark); }
+    .top-create-form-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      color: var(--brown-light);
+      cursor: pointer;
+    }
+    .top-create-form-msg {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
     .personal-grid {
@@ -1657,6 +2084,361 @@
 
     .empty-text { font-size: 1.05rem; }
     .empty-sub { font-size: 0.9rem; margin-top: 8px; color: var(--brown-light); }
+
+    /* ===== ALBUM MANAGER MODAL ===== */
+    .am-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 700;
+      background: rgba(250,247,244,0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .am-modal.active { display: flex; }
+
+    .am-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: white;
+      border-bottom: 1px solid rgba(201,134,154,0.2);
+      box-shadow: 0 2px 12px rgba(61,48,41,0.06);
+    }
+    .am-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+    }
+    .am-close {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(201,134,154,0.1);
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--brown-dark);
+      transition: all 0.2s;
+    }
+    .am-close:hover { background: var(--pink-accent); color: white; }
+
+    .am-body {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .am-sidebar {
+      width: 280px;
+      min-width: 280px;
+      background: white;
+      border-right: 1px solid rgba(201,134,154,0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .am-create-box {
+      display: flex;
+      gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(201,134,154,0.1);
+    }
+    .am-create-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 2px solid rgba(201,134,154,0.2);
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      color: var(--brown-dark);
+      transition: border-color 0.2s;
+    }
+    .am-create-input:focus { border-color: var(--pink-accent); }
+    .am-create-input::placeholder { color: var(--brown-light); opacity: 0.5; }
+    .am-create-btn {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 10px;
+      background: var(--pink-accent);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .am-create-btn:hover { background: var(--pink-dark); }
+
+    .am-album-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px;
+    }
+    .am-album-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      margin-bottom: 4px;
+    }
+    .am-album-item:hover { background: rgba(201,134,154,0.06); }
+    .am-album-item.active {
+      background: var(--pink-light);
+      border-color: var(--pink-accent);
+    }
+    .am-album-item-icon { font-size: 1.3rem; }
+    .am-album-item-info { flex: 1; min-width: 0; }
+    .am-album-item-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--brown-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .am-album-item-count {
+      font-size: 0.78rem;
+      color: var(--brown-light);
+    }
+
+    .am-detail {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .am-detail-empty {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--brown-light);
+    }
+    .am-detail-empty-icon { font-size: 3rem; margin-bottom: 12px; opacity: 0.5; }
+    .am-detail-empty-hint { font-size: 0.85rem; margin-top: 6px; opacity: 0.6; }
+
+    .am-detail-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+    .am-detail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(201,134,154,0.1);
+      flex-wrap: wrap;
+    }
+    .am-detail-name-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 200px;
+    }
+    .am-detail-icon { font-size: 1.3rem; }
+    .am-detail-name {
+      flex: 1;
+      padding: 6px 12px;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      background: transparent;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .am-detail-name:focus {
+      border-color: var(--pink-accent);
+      background: white;
+    }
+    .am-detail-save-name {
+      padding: 4px 10px;
+      border: none;
+      border-radius: 8px;
+      background: var(--green-accent);
+      color: white;
+      font-size: 0.85rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .am-detail-name:focus ~ .am-detail-save-name,
+    .am-detail-save-name:hover { opacity: 1; }
+
+    .am-detail-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .am-detail-btn {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--pink-light);
+      color: var(--pink-accent);
+    }
+    .am-detail-btn:hover { background: var(--pink-accent); color: white; }
+    .am-detail-btn-danger { background: #fde8e8; color: #e74c3c; }
+    .am-detail-btn-danger:hover { background: #e74c3c; color: white; }
+
+    .am-detail-info {
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      color: var(--brown-light);
+    }
+
+    .am-detail-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: rgba(201,134,154,0.08);
+      border-bottom: 1px solid rgba(201,134,154,0.1);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .am-detail-toolbar span { font-weight: 600; color: var(--pink-accent); margin-right: auto; }
+    .am-toolbar-btn {
+      padding: 4px 12px;
+      border: 1px solid rgba(201,134,154,0.3);
+      border-radius: 8px;
+      background: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--brown-dark);
+      transition: all 0.2s;
+    }
+    .am-toolbar-btn:hover { background: var(--pink-light); border-color: var(--pink-accent); }
+    .am-toolbar-btn-danger { color: #e74c3c; border-color: #f5c6cb; }
+    .am-toolbar-btn-danger:hover { background: #fde8e8; }
+
+    .am-detail-grid {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      align-content: start;
+    }
+    .am-photo-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .am-photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .am-photo-item:hover { border-color: rgba(201,134,154,0.4); }
+    .am-photo-item.selected { border-color: var(--pink-accent); }
+    .am-photo-item.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 6px; right: 6px;
+      width: 22px; height: 22px;
+      background: var(--pink-accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .am-detail-empty-photos {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brown-light);
+      font-size: 0.95rem;
+    }
+
+    .am-move-dialog {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .am-move-inner {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      width: 340px;
+      max-height: 70vh;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .am-move-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 16px;
+    }
+    .am-move-list {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .am-move-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--brown-dark);
+    }
+    .am-move-item:hover { background: var(--pink-light); }
+    .am-move-actions {
+      margin-top: 12px;
+      text-align: center;
+    }
+    .am-move-cancel {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(201,134,154,0.1);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--brown-dark);
+    }
+    .am-move-cancel:hover { background: rgba(201,134,154,0.2); }
+
+    @media (max-width: 768px) {
+      .am-body { flex-direction: column; }
+      .am-sidebar { width: 100%; min-width: 0; max-height: 200px; border-right: none; border-bottom: 1px solid rgba(201,134,154,0.15); }
+      .am-detail-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+      .am-detail-header { flex-direction: column; align-items: stretch; }
+    }
 
     /* ===== SLIDESHOW FOR PERSONAL ===== */
     .personal-slideshow {
@@ -1867,6 +2649,7 @@
       .photo-grid.list { grid-template-columns: 1fr; }
       .section { padding: 60px 16px; }
       .upload-zone { padding: 40px 20px; }
+      .upload-album-select { min-width: 0; }
       .slideshow-wrapper { border-radius: 0; }
       .ps-nav { width: 40px; height: 40px; font-size: 1.2rem; }
       .ps-track { padding: 0 20px; }
@@ -2172,6 +2955,18 @@
 </head>
 <body>
 
+  <!-- FLOATING CREATE ALBUM BUTTON -->
+  <button class="top-create-album-btn" id="topCreateBtn">✨ Tạo Album Mới</button>
+  <div class="top-create-form" id="topCreateForm">
+    <button class="top-create-form-close" id="topCreateClose">×</button>
+    <div class="top-create-form-title">✨ Tạo Album Mới</div>
+    <div class="top-create-form-row">
+      <input type="text" class="top-create-form-input" id="topCreateInput" placeholder="Nhập tên album..." maxlength="50" autocomplete="off">
+      <button class="top-create-form-save" id="topCreateSave">✅ Tạo</button>
+    </div>
+    <div class="top-create-form-msg" id="topCreateMsg"></div>
+  </div>
+
   <!-- NAV MENU -->
   <nav class="nav-menu" id="navMenu">
     <div class="nav-inner">
@@ -2201,6 +2996,9 @@
               </div>
             </div>
             <div class="nav-panel-actions">
+              <button class="nav-panel-btn" id="navAlbumManager">
+                <span>📂</span> Quản Lý Album
+              </button>
               <button class="nav-panel-btn" id="navOpenManager">
                 <span>📷</span> Quản Lý Ảnh
               </button>
@@ -2369,7 +3167,7 @@
           <small>JPG, PNG, WebP, GIF — Ảnh sẽ thêm vào cuối album</small>
           <input type="file" id="dsAddInput" accept="image/*" multiple>
         </div>
-        <div class="ds-add-preview" id="dsAddPreview" style="display:none">
+        <div class="ds-add-preview" id="dsAddPreview">
           <p class="ds-add-preview-title">📸 Đã chọn <strong id="dsAddCount">0</strong> ảnh</p>
           <div class="ds-add-preview-grid" id="dsAddPreviewGrid"></div>
           <div class="ds-add-actions">
@@ -2418,7 +3216,26 @@
       <h2 class="section-title">Khoảnh Khắc Của Bạn</h2>
       <p class="section-subtitle">Lưu giữ những kỷ niệm đẹp của riêng bạn</p>
     </div>
-    <div class="upload-container reveal">
+    <div class="upload-container">
+      <!-- Step 1: Album Name -->
+      <div class="upload-step" id="uploadStep1">
+        <div class="upload-step-label">Bước 1: Đặt tên album</div>
+        <div class="upload-album-name-box">
+          <span class="upload-album-name-icon">📝</span>
+          <input type="text" class="upload-album-name-input" id="uploadAlbumNameInput" placeholder="Nhập tên album mới..." maxlength="50" autocomplete="off">
+        </div>
+        <div class="upload-album-existing">
+          <span class="upload-album-existing-label">Hoặc chọn album có sẵn:</span>
+          <select class="upload-album-select" id="uploadAlbumSelect">
+            <option value="">-- Chọn album --</option>
+          </select>
+        </div>
+        <div class="upload-album-status" id="uploadAlbumStatus"></div>
+      </div>
+      <!-- Step 2: Pick Photos -->
+      <div class="upload-step">
+        <div class="upload-step-label">Bước 2: Chọn ảnh</div>
+      </div>
       <div class="upload-zone" id="uploadZone">
         <span class="upload-icon">📷</span>
         <p class="upload-text">
@@ -2449,15 +3266,49 @@
   <!-- PERSONAL ALBUM -->
   <section class="section album-personal" id="personal">
     <div class="section-header reveal">
-      <h2 class="section-title">Album Của Bạn</h2>
+      <h2 class="section-title" id="personalTitle">Album Của Bạn</h2>
       <p class="section-subtitle" id="personalCount">0 khoảnh khắc đã lưu</p>
     </div>
-    <div class="personal-actions reveal" id="personalActions" style="display:none">
+
+    <!-- Album Collection Manager -->
+    <div class="album-collection-bar" id="albumCollectionBar">
+      <div class="album-tabs-wrap">
+        <button class="album-tab active" data-album-id="" id="albumTabAll">📂 Tất Cả</button>
+        <div class="album-tabs-list" id="albumTabsList"></div>
+        <button class="album-tab album-tab-add" id="albumCreateBtn" title="Tạo album mới">＋ Tạo Album</button>
+        <button class="album-tab album-tab-action" id="btnRenameAlbum" style="display:none" title="Đổi tên album">✏️ Đổi Tên</button>
+        <button class="album-tab album-tab-action album-tab-danger" id="btnDeleteAlbum" style="display:none" title="Xóa album">🗑️ Xóa Album</button>
+      </div>
+    </div>
+
+    <!-- Create Album Dialog -->
+    <div class="album-create-dialog" id="albumCreateDialog" style="display:none">
+      <div class="album-create-inner">
+        <span class="album-create-icon">📁</span>
+        <input type="text" class="album-create-input" id="albumCreateInput" placeholder="Nhập tên album..." maxlength="50">
+        <button class="album-create-confirm" id="albumCreateConfirm">✅ Tạo</button>
+        <button class="album-create-cancel" id="albumCreateCancel">✕</button>
+      </div>
+    </div>
+
+    <div class="personal-actions" id="personalActions">
+      <button class="action-btn action-btn-primary" id="btnCreateAlbum">✨ Tạo Album Mới</button>
+      <button class="action-btn" id="btnAlbumMgr">📂 Quản Lý Album</button>
       <button class="action-btn" id="btnSlideshow">🎬 Chiếu Album</button>
       <button class="action-btn" id="btnEdit">✏️ Chỉnh Sửa</button>
       <button class="action-btn" id="btnManager">🖼️ Quản Lý Ảnh</button>
       <button class="action-btn" id="btnShuffle">🔀 Xáo Trộn</button>
-      <button class="action-btn danger" id="btnClearAll">🗑️ Xóa Tất Cả</button>
+      <button class="action-btn danger" id="btnClearAll">🗑️ Xóa Tất Cả Ảnh</button>
+    </div>
+    <!-- Quick Create Album Form -->
+    <div class="quick-create-album" id="quickCreateAlbum">
+      <div class="quick-create-album-title">✨ Tạo Album Mới</div>
+      <div class="quick-create-album-row">
+        <input type="text" class="quick-create-album-input" id="quickCreateInput" placeholder="Nhập tên album..." maxlength="50" autocomplete="off">
+        <button class="quick-create-album-save" id="quickCreateSave">✅ Tạo</button>
+        <button class="quick-create-album-cancel" id="quickCreateCancel">✕ Hủy</button>
+      </div>
+      <div class="quick-create-album-msg" id="quickCreateMsg"></div>
     </div>
     <div class="personal-grid" id="personalGrid"></div>
     <div class="empty-state" id="emptyState">
@@ -2538,6 +3389,68 @@
     </div>
   </div>
 
+  <!-- ALBUM MANAGER MODAL -->
+  <div class="am-modal" id="albumManagerModal">
+    <div class="am-header">
+      <h2 class="am-title">📂 Quản Lý Album</h2>
+      <button class="am-close" id="amClose">×</button>
+    </div>
+    <div class="am-body">
+      <!-- LEFT: Album list -->
+      <div class="am-sidebar">
+        <div class="am-create-box">
+          <input type="text" class="am-create-input" id="amCreateInput" placeholder="Tên album mới..." maxlength="50">
+          <button class="am-create-btn" id="amCreateBtn">＋ Tạo</button>
+        </div>
+        <div class="am-album-list" id="amAlbumList"></div>
+      </div>
+      <!-- RIGHT: Album detail -->
+      <div class="am-detail" id="amDetail">
+        <div class="am-detail-empty" id="amDetailEmpty">
+          <span class="am-detail-empty-icon">📁</span>
+          <p>Chọn một album bên trái để quản lý</p>
+          <p class="am-detail-empty-hint">Hoặc tạo album mới</p>
+        </div>
+        <div class="am-detail-content" id="amDetailContent" style="display:none">
+          <div class="am-detail-header">
+            <div class="am-detail-name-wrap">
+              <span class="am-detail-icon">📷</span>
+              <input type="text" class="am-detail-name" id="amDetailName" maxlength="50">
+              <button class="am-detail-save-name" id="amSaveName" title="Lưu tên">✅</button>
+            </div>
+            <div class="am-detail-actions">
+              <button class="am-detail-btn" id="amAddPhotos">📷 Thêm Ảnh</button>
+              <button class="am-detail-btn am-detail-btn-danger" id="amDeleteAlbum">🗑️ Xóa Album</button>
+            </div>
+          </div>
+          <div class="am-detail-info" id="amDetailInfo">0 ảnh</div>
+          <div class="am-detail-toolbar" id="amDetailToolbar" style="display:none">
+            <span id="amSelectedCount">0 ảnh đã chọn</span>
+            <button class="am-toolbar-btn" id="amMovePhotos">📁 Chuyển Album</button>
+            <button class="am-toolbar-btn am-toolbar-btn-danger" id="amRemovePhotos">🗑️ Xóa Ảnh</button>
+            <button class="am-toolbar-btn" id="amDeselectAll">✕ Bỏ Chọn</button>
+          </div>
+          <div class="am-detail-grid" id="amDetailGrid"></div>
+          <div class="am-detail-empty-photos" id="amDetailEmptyPhotos" style="display:none">
+            <p>📭 Album trống — bấm "📷 Thêm Ảnh" để bắt đầu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hidden file input for adding photos -->
+    <input type="file" id="amFileInput" accept="image/*" multiple style="display:none">
+    <!-- Move-to-album dialog -->
+    <div class="am-move-dialog" id="amMoveDialog" style="display:none">
+      <div class="am-move-inner">
+        <h3 class="am-move-title">📁 Chuyển ảnh sang album</h3>
+        <div class="am-move-list" id="amMoveList"></div>
+        <div class="am-move-actions">
+          <button class="am-move-cancel" id="amMoveCancel">✕ Hủy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- PERSONAL SLIDESHOW -->
   <div class="personal-slideshow" id="personalSlideshow">
     <div class="ps-topbar">
@@ -2601,9 +3514,11 @@
 
     /* ===== INDEXEDDB ===== */
     const DB_NAME = 'hanoi_album_db';
-    const DB_VERSION = 2;
+    const DB_VERSION = 3;
     const STORE_NAME = 'images';
+    const ALBUMS_STORE = 'albums';
     let db = null;
+    let currentAlbumId = null;
 
     function initDB() {
       return new Promise((resolve, reject) => {
@@ -2614,6 +3529,9 @@
           const database = e.target.result;
           if (!database.objectStoreNames.contains(STORE_NAME)) {
             database.createObjectStore(STORE_NAME, { keyPath: 'id' });
+          }
+          if (!database.objectStoreNames.contains(ALBUMS_STORE)) {
+            database.createObjectStore(ALBUMS_STORE, { keyPath: 'id' });
           }
         };
       });
@@ -2659,6 +3577,43 @@
       });
     }
 
+    /* ===== ALBUM CRUD ===== */
+    async function getAllAlbums() {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(ALBUMS_STORE, 'readonly');
+        const store = tx.objectStore(ALBUMS_STORE);
+        const req = store.getAll();
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function saveAlbum(album) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(ALBUMS_STORE, 'readwrite');
+        const store = tx.objectStore(ALBUMS_STORE);
+        store.put(album);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    async function deleteAlbum(id) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(ALBUMS_STORE, 'readwrite');
+        const store = tx.objectStore(ALBUMS_STORE);
+        store.delete(id);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    async function getImagesByAlbum(albumId) {
+      const all = await getAllImages();
+      if (!albumId) return all;
+      return all.filter(img => img.albumId === albumId);
+    }
+
     /* ===== PETALS ANIMATION ===== */
     function createPetals() {
       const petals = ['🌸', '🌺', '🍃', '✨'];
@@ -2700,6 +3655,11 @@
       if (!isOpen) manageDropdown.classList.add('open');
     });
 
+    document.getElementById('navAlbumManager').addEventListener('click', () => {
+      manageDropdown.classList.remove('open');
+      openAlbumManager();
+    });
+
     document.getElementById('navOpenManager').addEventListener('click', () => {
       manageDropdown.classList.remove('open');
       openPhotoManager();
@@ -2725,7 +3685,11 @@
         const j = Math.floor(Math.random() * (i + 1));
         [images[i], images[j]] = [images[j], images[i]];
       }
-      for (const img of images) await saveImages([img]);
+      await clearAllImages();
+      for (let i = 0; i < images.length; i++) {
+        images[i].order = i;
+        await saveImages([images[i]]);
+      }
       await renderPersonal();
     });
 
@@ -3118,7 +4082,7 @@
       const item = e.target.closest('.pm-item');
       if (!item) return;
 
-      const id = item.dataset.id;
+      const id = Number(item.dataset.id);
       const index = parseInt(item.dataset.index);
 
       if (e.ctrlKey || e.metaKey || e.shiftKey) {
@@ -3156,6 +4120,7 @@
       await deleteImage(id);
       await loadPmGrid();
       closePmImg();
+      await renderPersonal();
     });
 
     // Delete selected images
@@ -3164,10 +4129,11 @@
       const confirmed = confirm(`Xóa ${pmSelected.size} ảnh đã chọn?`);
       if (!confirmed) return;
       for (const id of pmSelected) {
-        await deleteImage(id);
+        await deleteImage(Number(id));
       }
       pmSelected.clear();
       await loadPmGrid();
+      await renderPersonal();
     });
 
     document.getElementById('pmClearSelection').addEventListener('click', () => {
@@ -3247,7 +4213,7 @@
           reader.onload = e => r(e.target.result);
           reader.readAsDataURL(file);
         });
-        toSave.push({ id: Date.now() + Math.random(), dataUrl, addedAt: Date.now(), name: file.name });
+        toSave.push({ id: Date.now() + Math.random(), dataUrl, addedAt: Date.now(), name: file.name, albumId: currentAlbumId });
       }
       await saveImages(toSave);
       pmPendingFiles = [];
@@ -3256,6 +4222,7 @@
       pmBtnSave.textContent = '💾 Đã lưu!';
       setTimeout(() => { pmBtnSave.textContent = '💾 Lưu Vào Album'; pmBtnSave.disabled = false; }, 2000);
       await loadPmGrid();
+      await renderAlbumTabs();
       await renderPersonal();
     });
 
@@ -3268,8 +4235,105 @@
     });
 
     // Open manager button
+    document.getElementById('btnAlbumMgr').addEventListener('click', openAlbumManager);
     document.getElementById('btnManager').addEventListener('click', openPhotoManager);
     document.getElementById('btnEdit').addEventListener('click', openPhotoManager);
+
+    // Quick Create Album
+    const quickCreateAlbum = document.getElementById('quickCreateAlbum');
+    const quickCreateInput = document.getElementById('quickCreateInput');
+    const quickCreateSave = document.getElementById('quickCreateSave');
+    const quickCreateCancel = document.getElementById('quickCreateCancel');
+    const quickCreateMsg = document.getElementById('quickCreateMsg');
+
+    document.getElementById('btnCreateAlbum').addEventListener('click', () => {
+      quickCreateAlbum.classList.add('active');
+      quickCreateInput.value = '';
+      quickCreateMsg.textContent = '';
+      quickCreateInput.focus();
+    });
+
+    quickCreateCancel.addEventListener('click', () => {
+      quickCreateAlbum.classList.remove('active');
+    });
+
+    quickCreateInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') quickCreateSave.click();
+      if (e.key === 'Escape') quickCreateCancel.click();
+    });
+
+    quickCreateSave.addEventListener('click', async () => {
+      const name = quickCreateInput.value.trim();
+      if (!name) { quickCreateInput.focus(); return; }
+      const album = {
+        id: Date.now() + Math.random(),
+        name: name,
+        icon: '📷',
+        createdAt: Date.now()
+      };
+      await saveAlbum(album);
+      currentAlbumId = album.id;
+      quickCreateInput.value = '';
+      quickCreateMsg.innerHTML = `<span style="color:var(--green-accent)">✅ Đã tạo album "<strong>${name}</strong>"!</span>`;
+      await updateUploadAlbumSelect();
+      uploadAlbumSelect.value = album.id;
+      await renderAlbumTabs();
+      await renderPersonal();
+      setTimeout(() => {
+        quickCreateAlbum.classList.remove('active');
+        quickCreateMsg.textContent = '';
+      }, 2000);
+    });
+
+    // Floating Top Create Album Button
+    const topCreateBtn = document.getElementById('topCreateBtn');
+    const topCreateForm = document.getElementById('topCreateForm');
+    const topCreateInput = document.getElementById('topCreateInput');
+    const topCreateSave = document.getElementById('topCreateSave');
+    const topCreateClose = document.getElementById('topCreateClose');
+    const topCreateMsg = document.getElementById('topCreateMsg');
+
+    topCreateBtn.addEventListener('click', () => {
+      topCreateForm.classList.add('active');
+      topCreateBtn.style.display = 'none';
+      topCreateInput.value = '';
+      topCreateMsg.textContent = '';
+      topCreateInput.focus();
+    });
+
+    topCreateClose.addEventListener('click', () => {
+      topCreateForm.classList.remove('active');
+      topCreateBtn.style.display = 'flex';
+    });
+
+    topCreateInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') topCreateSave.click();
+      if (e.key === 'Escape') topCreateClose.click();
+    });
+
+    topCreateSave.addEventListener('click', async () => {
+      const name = topCreateInput.value.trim();
+      if (!name) { topCreateInput.focus(); return; }
+      const album = {
+        id: Date.now() + Math.random(),
+        name: name,
+        icon: '📷',
+        createdAt: Date.now()
+      };
+      await saveAlbum(album);
+      currentAlbumId = album.id;
+      topCreateInput.value = '';
+      topCreateMsg.innerHTML = `<span style="color:var(--green-accent)">✅ Đã tạo "<strong>${name}</strong>"!</span>`;
+      await updateUploadAlbumSelect();
+      uploadAlbumSelect.value = album.id;
+      await renderAlbumTabs();
+      await renderPersonal();
+      setTimeout(() => {
+        topCreateForm.classList.remove('active');
+        topCreateBtn.style.display = 'flex';
+        topCreateMsg.textContent = '';
+      }, 2000);
+    });
 
     // View toggle
     document.querySelectorAll('.view-btn').forEach(btn => {
@@ -3280,6 +4344,207 @@
       });
     });
 
+    // ===== DATASET: THÊM ẢNH =====
+    const dsAddZone = document.getElementById('dsAddZone');
+    const dsAddInput = document.getElementById('dsAddInput');
+    const dsAddPreviewGrid = document.getElementById('dsAddPreviewGrid');
+    const dsAddPreview = document.querySelector('.ds-add-preview');
+    let dsAddFiles = [];
+
+    document.getElementById('datasetAddBtn')?.addEventListener('click', () => {
+      dsAddZone.style.display = dsAddZone.style.display === 'block' ? 'none' : 'block';
+      dsAddFiles = [];
+      if (dsAddPreviewGrid) dsAddPreviewGrid.innerHTML = '';
+      if (dsAddPreview) dsAddPreview.classList.remove('active');
+    });
+
+    document.getElementById('dsAddClose')?.addEventListener('click', () => {
+      dsAddZone.style.display = 'none';
+      dsAddFiles = [];
+    });
+
+    if (dsAddInput) {
+      dsAddInput.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files);
+        dsAddFiles = dsAddFiles.concat(files);
+        renderDsAddPreview();
+      });
+    }
+
+    const dsAddUpload = document.querySelector('.ds-add-upload');
+    if (dsAddUpload) {
+      dsAddUpload.addEventListener('dragover', (e) => { e.preventDefault(); dsAddUpload.classList.add('drag-over'); });
+      dsAddUpload.addEventListener('dragleave', () => dsAddUpload.classList.remove('drag-over'));
+      dsAddUpload.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dsAddUpload.classList.remove('drag-over');
+        const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+        dsAddFiles = dsAddFiles.concat(files);
+        renderDsAddPreview();
+      });
+    }
+
+    function renderDsAddPreview() {
+      if (!dsAddPreviewGrid || !dsAddPreview) return;
+      dsAddPreview.classList.add('active');
+      dsAddPreviewGrid.innerHTML = '';
+      const titleEl = dsAddPreview.querySelector('.ds-add-preview-title');
+      if (titleEl) titleEl.innerHTML = '📸 Đã chọn <strong>' + dsAddFiles.length + '</strong> ảnh';
+      dsAddFiles.forEach((file, i) => {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const item = document.createElement('div');
+          item.className = 'ds-add-preview-item';
+          item.innerHTML = '<img src="' + ev.target.result + '" alt="Preview"><button class="ds-add-preview-remove" data-idx="' + i + '">×</button>';
+          dsAddPreviewGrid.appendChild(item);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    dsAddPreviewGrid?.addEventListener('click', (e) => {
+      const removeBtn = e.target.closest('.ds-add-preview-remove');
+      if (removeBtn) {
+        const idx = parseInt(removeBtn.dataset.idx);
+        dsAddFiles.splice(idx, 1);
+        renderDsAddPreview();
+      }
+    });
+
+    document.getElementById('dsAddConfirm')?.addEventListener('click', async () => {
+      if (dsAddFiles.length === 0) return;
+      for (const file of dsAddFiles) {
+        const dataUrl = await new Promise(resolve => {
+          const reader = new FileReader();
+          reader.onload = (ev) => resolve(ev.target.result);
+          reader.readAsDataURL(file);
+        });
+        datasetImages.push(dataUrl);
+      }
+      renderDataset(document.querySelector('.view-btn.active')?.dataset.view || 'grid');
+      dsAddZone.style.display = 'none';
+      dsAddFiles = [];
+    });
+
+    document.getElementById('dsAddCancelBtn')?.addEventListener('click', () => {
+      dsAddZone.style.display = 'none';
+      dsAddFiles = [];
+    });
+
+    // ===== DATASET: CHIẾU ALBUM (SLIDESHOW) =====
+    let dsSlideInterval = null;
+    let dsSlideIndex = 0;
+    let currentDsEffect = 'fade';
+
+    document.getElementById('datasetSlideshowBtn')?.addEventListener('click', () => {
+      if (datasetImages.length === 0) return;
+      const viewer = document.getElementById('dsFsViewer');
+      viewer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      dsSlideIndex = 0;
+      showDsFsImage(dsSlideIndex, currentDsEffect);
+      startDsSlideshow();
+    });
+
+    function showDsFsImage(index, effect) {
+      const img = document.getElementById('dsFsImg');
+      const counter = document.querySelector('.ds-fs-counter');
+      const titleEl = document.querySelector('.ds-fs-title');
+      if (!img) return;
+      img.className = 'ds-fs-img';
+      img.style.opacity = '0';
+      setTimeout(() => {
+        img.src = datasetImages[index];
+        img.alt = 'Hà Nội ' + (index + 1);
+        img.className = 'ds-fs-img' + (effect ? ' effect-' + effect : ' effect-fade');
+        img.style.opacity = '';
+        if (counter) counter.textContent = (index + 1) + ' / ' + datasetImages.length;
+        if (titleEl) titleEl.textContent = 'Góc Hà Nội #' + (index + 1);
+      }, 100);
+    }
+
+    function startDsSlideshow() {
+      stopDsSlideshow();
+      dsSlideInterval = setInterval(() => {
+        dsSlideIndex = (dsSlideIndex + 1) % datasetImages.length;
+        showDsFsImage(dsSlideIndex, currentDsEffect);
+      }, 3000);
+    }
+
+    function stopDsSlideshow() {
+      if (dsSlideInterval) { clearInterval(dsSlideInterval); dsSlideInterval = null; }
+    }
+
+    // ===== DATASET: TOÀN MÀN (FULLSCREEN) =====
+    document.getElementById('datasetFullscreenBtn')?.addEventListener('click', () => {
+      if (datasetImages.length === 0) return;
+      const viewer = document.getElementById('dsFsViewer');
+      viewer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      dsSlideIndex = 0;
+      showDsFsImage(dsSlideIndex, currentDsEffect);
+    });
+
+    document.getElementById('dsFsClose')?.addEventListener('click', () => {
+      document.getElementById('dsFsViewer').classList.remove('active');
+      document.body.style.overflow = '';
+      stopDsSlideshow();
+    });
+
+    document.getElementById('dsFsPrev')?.addEventListener('click', () => {
+      stopDsSlideshow();
+      dsSlideIndex = (dsSlideIndex - 1 + datasetImages.length) % datasetImages.length;
+      showDsFsImage(dsSlideIndex, currentDsEffect);
+    });
+
+    document.getElementById('dsFsNext')?.addEventListener('click', () => {
+      stopDsSlideshow();
+      dsSlideIndex = (dsSlideIndex + 1) % datasetImages.length;
+      showDsFsImage(dsSlideIndex, currentDsEffect);
+    });
+
+    document.querySelectorAll('.ds-fs-effect-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ds-fs-effect-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentDsEffect = btn.dataset.effect;
+        showDsFsImage(dsSlideIndex, currentDsEffect);
+      });
+    });
+
+    document.getElementById('dsFsDelBtn')?.addEventListener('click', () => {
+      if (datasetImages.length <= 1) { alert('Không thể xóa ảnh cuối cùng!'); return; }
+      if (!confirm('Xóa ảnh này khỏi album?')) return;
+      datasetImages.splice(dsSlideIndex, 1);
+      if (dsSlideIndex >= datasetImages.length) dsSlideIndex = 0;
+      showDsFsImage(dsSlideIndex, currentDsEffect);
+      renderDataset(document.querySelector('.view-btn.active')?.dataset.view || 'grid');
+    });
+
+    document.getElementById('dsFsEditBtn')?.addEventListener('click', () => {
+      alert('Tính năng chỉnh sửa ảnh sẽ sớm ra mắt!');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const viewer = document.getElementById('dsFsViewer');
+      if (!viewer || !viewer.classList.contains('active')) return;
+      if (e.key === 'Escape') { viewer.classList.remove('active'); document.body.style.overflow = ''; stopDsSlideshow(); }
+      if (e.key === 'ArrowLeft') { stopDsSlideshow(); dsSlideIndex = (dsSlideIndex - 1 + datasetImages.length) % datasetImages.length; showDsFsImage(dsSlideIndex, currentDsEffect); }
+      if (e.key === 'ArrowRight') { stopDsSlideshow(); dsSlideIndex = (dsSlideIndex + 1) % datasetImages.length; showDsFsImage(dsSlideIndex, currentDsEffect); }
+      if (e.key === ' ') { e.preventDefault(); if (dsSlideInterval) stopDsSlideshow(); else startDsSlideshow(); }
+    });
+
+    document.getElementById('datasetGrid')?.addEventListener('dblclick', (e) => {
+      const item = e.target.closest('.photo-item');
+      if (!item) return;
+      const index = parseInt(item.dataset.index);
+      const viewer = document.getElementById('dsFsViewer');
+      viewer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      dsSlideIndex = index;
+      showDsFsImage(dsSlideIndex, currentDsEffect);
+    });
+
     /* ===== RENDER PERSONAL ALBUM ===== */
     async function renderPersonal() {
       const grid = document.getElementById('personalGrid');
@@ -3287,15 +4552,23 @@
       const actions = document.getElementById('personalActions');
       const count = document.getElementById('personalCount');
       try {
-        const images = await getAllImages();
+        const allImgs = await getAllImages();
+        // Filter by current album
+        const images = currentAlbumId
+          ? allImgs.filter(img => img.albumId === currentAlbumId)
+          : allImgs;
+        // Sort by order field if present, otherwise by addedAt
+        images.sort((a, b) => {
+          if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
+          return (a.addedAt || 0) - (b.addedAt || 0);
+        });
         count.textContent = `${images.length} khoảnh khắc đã lưu`;
+        actions.style.display = 'flex';
         if (images.length === 0) {
           grid.innerHTML = '';
           empty.style.display = 'block';
-          actions.style.display = 'none';
         } else {
           empty.style.display = 'none';
-          actions.style.display = 'flex';
           grid.innerHTML = images.map((img, i) => `
             <div class="personal-item" data-id="${img.id}" style="animation-delay: ${i * 0.05}s">
               <img src="${img.dataUrl}" alt="Ảnh ${i + 1}" loading="lazy">
@@ -3370,7 +4643,7 @@
       if (e.target.classList.contains('delete-btn')) {
         e.stopPropagation();
         if (confirm('Xóa ảnh này?')) {
-          await deleteImage(item.dataset.id);
+          await deleteImage(Number(item.dataset.id));
           await renderPersonal();
         }
         return;
@@ -3378,14 +4651,14 @@
 
       if (e.target.classList.contains('view-btn')) {
         e.stopPropagation();
-        const id = item.dataset.id;
+        const id = Number(item.dataset.id);
         const images = await getAllImages();
         const index = images.findIndex(img => img.id === id);
         openLightbox(index, images.map(img => ({ src: img.dataUrl })), 'personal');
         return;
       }
 
-      const id = item.dataset.id;
+      const id = Number(item.dataset.id);
       const images = await getAllImages();
       const index = images.findIndex(img => img.id === id);
       openLightbox(index, images.map(img => ({ src: img.dataUrl })), 'personal');
@@ -3490,6 +4763,8 @@
     const progressText = document.getElementById('progressText');
     const btnSave = document.getElementById('btnSave');
     const btnCancel = document.getElementById('btnCancel');
+    const uploadAlbumNameInput = document.getElementById('uploadAlbumNameInput');
+    const uploadAlbumStatus = document.getElementById('uploadAlbumStatus');
 
     uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
     uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
@@ -3524,11 +4799,15 @@
           `;
           previewGrid.appendChild(div);
           completed++;
-          progressText.textContent = `Đọc ${completed}/${pendingFiles.length} ảnh...`;
+          if (completed >= pendingFiles.length) {
+            progressText.textContent = `Sẵn sàng lưu ${pendingFiles.length} ảnh`;
+          } else {
+            progressText.textContent = `Đọc ${completed}/${pendingFiles.length} ảnh...`;
+          }
         };
         reader.readAsDataURL(file);
       });
-      progressText.textContent = `Sẵn sàng lưu ${pendingFiles.length} ảnh`;
+      progressText.textContent = `Đang đọc ${pendingFiles.length} ảnh...`;
     }
 
     previewGrid.addEventListener('click', (e) => {
@@ -3551,6 +4830,34 @@
 
     btnSave.addEventListener('click', async () => {
       if (pendingFiles.length === 0) return;
+      // If no album selected, create from name input
+      if (!uploadAlbumSelect.value) {
+        const name = uploadAlbumNameInput.value.trim();
+        if (!name) {
+          uploadAlbumStatus.textContent = '⚠️ Vui lòng nhập tên album hoặc chọn album có sẵn!';
+          uploadAlbumStatus.className = 'upload-album-status error';
+          uploadAlbumNameInput.focus();
+          return;
+        }
+        // Create new album
+        const album = {
+          id: Date.now() + Math.random(),
+          name: name,
+          icon: '📷',
+          createdAt: Date.now()
+        };
+        await saveAlbum(album);
+        currentAlbumId = album.id;
+        await updateUploadAlbumSelect();
+        uploadAlbumSelect.value = album.id;
+        uploadAlbumNameInput.value = '';
+        uploadAlbumStatus.textContent = `✅ Đã tạo album "${name}"`;
+        uploadAlbumStatus.className = 'upload-album-status success';
+      }
+      await doSaveImages();
+    });
+
+    async function doSaveImages() {
       uploadProgress.classList.add('active');
       btnSave.disabled = true;
       btnSave.textContent = '⏳ Đang lưu...';
@@ -3567,7 +4874,8 @@
           id: Date.now() + Math.random(),
           dataUrl,
           addedAt: Date.now(),
-          name: file.name
+          name: file.name,
+          albumId: currentAlbumId
         });
         progressBar.style.width = ((i + 1) / pendingFiles.length * 100) + '%';
         progressText.textContent = `Đang lưu ${i + 1}/${pendingFiles.length} ảnh...`;
@@ -3580,6 +4888,7 @@
         uploadProgress.classList.remove('active');
         progressBar.style.width = '0%';
         fileInput.value = '';
+        await renderAlbumTabs();
         await renderPersonal();
         btnSave.textContent = '💾 Đã lưu!';
         btnSave.style.background = '#A8BFA0';
@@ -3594,7 +4903,7 @@
         btnSave.textContent = '❌ Lỗi! Thử lại';
         btnSave.disabled = false;
       }
-    });
+    }
 
     /* ===== PERSONAL ACTIONS ===== */
     document.getElementById('btnSlideshow').addEventListener('click', openPersonalSlideshow);
@@ -3605,9 +4914,11 @@
         const j = Math.floor(Math.random() * (i + 1));
         [images[i], images[j]] = [images[j], images[i]];
       }
-      // Re-save in new order
-      for (const img of images) {
-        await saveImages([img]);
+      // Re-save with new order field
+      await clearAllImages();
+      for (let i = 0; i < images.length; i++) {
+        images[i].order = i;
+        await saveImages([images[i]]);
       }
       await renderPersonal();
     });
@@ -3620,6 +4931,473 @@
         await renderPersonal();
       }
     });
+
+    /* ===== ALBUM COLLECTION MANAGER ===== */
+    const albumTabsList = document.getElementById('albumTabsList');
+    const albumCreateBtn = document.getElementById('albumCreateBtn');
+    const albumCreateDialog = document.getElementById('albumCreateDialog');
+    const albumCreateInput = document.getElementById('albumCreateInput');
+    const albumCreateConfirm = document.getElementById('albumCreateConfirm');
+    const albumCreateCancel = document.getElementById('albumCreateCancel');
+    const albumTabAll = document.getElementById('albumTabAll');
+    const btnRenameAlbum = document.getElementById('btnRenameAlbum');
+    const btnDeleteAlbum = document.getElementById('btnDeleteAlbum');
+    const uploadAlbumSelect = document.getElementById('uploadAlbumSelect');
+    const personalTitle = document.getElementById('personalTitle');
+
+    // Populate upload album dropdown
+    async function updateUploadAlbumSelect() {
+      const albums = await getAllAlbums();
+      const prev = uploadAlbumSelect.value;
+      uploadAlbumSelect.innerHTML = '<option value="">-- Chọn album --</option>';
+      albums.forEach(album => {
+        const opt = document.createElement('option');
+        opt.value = album.id;
+        opt.textContent = `${album.icon || '📷'} ${album.name}`;
+        uploadAlbumSelect.appendChild(opt);
+      });
+      if (currentAlbumId) {
+        uploadAlbumSelect.value = currentAlbumId;
+      } else {
+        uploadAlbumSelect.value = prev || '';
+      }
+    }
+
+    // Update personal section title
+    async function updatePersonalTitle() {
+      if (currentAlbumId) {
+        const albums = await getAllAlbums();
+        const album = albums.find(a => a.id === currentAlbumId);
+        personalTitle.textContent = album ? `📷 ${album.name}` : 'Album Của Bạn';
+      } else {
+        personalTitle.textContent = 'Album Của Bạn';
+      }
+    }
+
+    // Upload album selector change → sync currentAlbumId
+    uploadAlbumSelect.addEventListener('change', () => {
+      const val = uploadAlbumSelect.value;
+      currentAlbumId = val ? Number(val) || val : null;
+      if (val) {
+        uploadAlbumNameInput.value = '';
+        uploadAlbumStatus.textContent = '';
+      }
+      renderAlbumTabs();
+      renderPersonal();
+    });
+
+    // When typing album name, clear dropdown selection
+    uploadAlbumNameInput.addEventListener('input', () => {
+      if (uploadAlbumNameInput.value.trim()) {
+        uploadAlbumSelect.value = '';
+        currentAlbumId = null;
+        uploadAlbumStatus.textContent = '';
+      }
+    });
+
+    async function renderAlbumTabs() {
+      const albums = await getAllAlbums();
+      const allImages = await getAllImages();
+      albumTabsList.innerHTML = '';
+
+      const allCount = allImages.length;
+      albumTabAll.innerHTML = `📂 Tất Cả <span class="album-tab-count">${allCount}</span>`;
+      albumTabAll.className = 'album-tab' + (currentAlbumId === null ? ' active' : '');
+
+      albums.forEach(album => {
+        const count = allImages.filter(img => img.albumId === album.id).length;
+        const tab = document.createElement('button');
+        tab.className = 'album-tab' + (currentAlbumId === album.id ? ' active' : '');
+        tab.dataset.albumId = album.id;
+        tab.innerHTML = `${album.icon || '📷'} ${album.name} <span class="album-tab-count">${count}</span>`;
+        tab.addEventListener('click', () => {
+          currentAlbumId = album.id;
+          renderAlbumTabs();
+          renderPersonal();
+        });
+        albumTabsList.appendChild(tab);
+      });
+
+      if (currentAlbumId) {
+        btnRenameAlbum.style.display = '';
+        btnDeleteAlbum.style.display = '';
+      } else {
+        btnRenameAlbum.style.display = 'none';
+        btnDeleteAlbum.style.display = 'none';
+      }
+
+      await updateUploadAlbumSelect();
+      await updatePersonalTitle();
+    }
+
+    albumTabAll.addEventListener('click', () => {
+      currentAlbumId = null;
+      renderAlbumTabs();
+      renderPersonal();
+    });
+
+    albumCreateBtn.addEventListener('click', () => {
+      albumCreateDialog.style.display = albumCreateDialog.style.display === 'none' ? 'block' : 'none';
+      if (albumCreateDialog.style.display === 'block') {
+        albumCreateInput.value = '';
+        albumCreateInput.focus();
+      }
+    });
+
+    albumCreateConfirm.addEventListener('click', async () => {
+      const name = albumCreateInput.value.trim();
+      if (!name) { albumCreateInput.focus(); return; }
+      const album = {
+        id: Date.now() + Math.random(),
+        name: name,
+        icon: '📷',
+        createdAt: Date.now()
+      };
+      await saveAlbum(album);
+      currentAlbumId = album.id;
+      albumCreateDialog.style.display = 'none';
+      albumCreateInput.value = '';
+      await renderAlbumTabs();
+      await renderPersonal();
+    });
+
+    albumCreateInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') albumCreateConfirm.click();
+      if (e.key === 'Escape') { albumCreateDialog.style.display = 'none'; }
+    });
+
+    albumCreateCancel.addEventListener('click', () => {
+      albumCreateDialog.style.display = 'none';
+      albumCreateInput.value = '';
+    });
+
+    btnRenameAlbum.addEventListener('click', async () => {
+      if (!currentAlbumId) return;
+      const albums = await getAllAlbums();
+      const album = albums.find(a => a.id === currentAlbumId);
+      if (!album) return;
+      const newName = prompt('Đổi tên album:', album.name);
+      if (newName && newName.trim()) {
+        album.name = newName.trim();
+        await saveAlbum(album);
+        await renderAlbumTabs();
+        await updatePersonalTitle();
+      }
+    });
+
+    btnDeleteAlbum.addEventListener('click', async () => {
+      if (!currentAlbumId) return;
+      const albums = await getAllAlbums();
+      const album = albums.find(a => a.id === currentAlbumId);
+      if (!album) return;
+      const images = await getImagesByAlbum(currentAlbumId);
+      const msg = images.length > 0
+        ? `Xóa album "${album.name}" và ${images.length} ảnh bên trong?`
+        : `Xóa album "${album.name}"?`;
+      if (!confirm(msg)) return;
+      for (const img of images) {
+        await deleteImage(img.id);
+      }
+      await deleteAlbum(currentAlbumId);
+      currentAlbumId = null;
+      await renderAlbumTabs();
+      await renderPersonal();
+    });
+
+      /* ===== ALBUM MANAGER ===== */
+      const amModal = document.getElementById('albumManagerModal');
+      const amClose = document.getElementById('amClose');
+      const amCreateInput = document.getElementById('amCreateInput');
+      const amCreateBtn = document.getElementById('amCreateBtn');
+      const amAlbumList = document.getElementById('amAlbumList');
+      const amDetailEmpty = document.getElementById('amDetailEmpty');
+      const amDetailContent = document.getElementById('amDetailContent');
+      const amDetailName = document.getElementById('amDetailName');
+      const amSaveName = document.getElementById('amSaveName');
+      const amDetailInfo = document.getElementById('amDetailInfo');
+      const amDetailGrid = document.getElementById('amDetailGrid');
+      const amDetailEmptyPhotos = document.getElementById('amDetailEmptyPhotos');
+      const amDetailToolbar = document.getElementById('amDetailToolbar');
+      const amSelectedCount = document.getElementById('amSelectedCount');
+      const amAddPhotos = document.getElementById('amAddPhotos');
+      const amDeleteAlbum = document.getElementById('amDeleteAlbum');
+      const amMovePhotos = document.getElementById('amMovePhotos');
+      const amRemovePhotos = document.getElementById('amRemovePhotos');
+      const amDeselectAll = document.getElementById('amDeselectAll');
+      const amFileInput = document.getElementById('amFileInput');
+      const amMoveDialog = document.getElementById('amMoveDialog');
+      const amMoveList = document.getElementById('amMoveList');
+      const amMoveCancel = document.getElementById('amMoveCancel');
+
+      let amCurrentAlbumId = null;
+      let amSelectedPhotos = new Set();
+
+      function openAlbumManager() {
+        amModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        amCurrentAlbumId = null;
+        amSelectedPhotos.clear();
+        renderAmAlbumList();
+        showAmEmpty();
+      }
+
+      function closeAlbumManager() {
+        amModal.classList.remove('active');
+        document.body.style.overflow = '';
+        // Refresh main UI
+        renderAlbumTabs();
+        renderPersonal();
+      }
+
+      amClose.addEventListener('click', closeAlbumManager);
+
+      function showAmEmpty() {
+        amDetailEmpty.style.display = 'flex';
+        amDetailContent.style.display = 'none';
+      }
+
+      async function renderAmAlbumList() {
+        const albums = await getAllAlbums();
+        const allImages = await getAllImages();
+        amAlbumList.innerHTML = '';
+
+        if (albums.length === 0) {
+          amAlbumList.innerHTML = '<div style="padding:20px;text-align:center;color:var(--brown-light);font-size:0.9rem;">Chưa có album nào<br><small>Nhập tên và bấm "＋ Tạo"</small></div>';
+          return;
+        }
+
+        albums.forEach(album => {
+          const count = allImages.filter(img => img.albumId === album.id).length;
+          const item = document.createElement('div');
+          item.className = 'am-album-item' + (amCurrentAlbumId === album.id ? ' active' : '');
+          item.innerHTML = `
+            <span class="am-album-item-icon">${album.icon || '📷'}</span>
+            <div class="am-album-item-info">
+              <div class="am-album-item-name">${album.name}</div>
+              <div class="am-album-item-count">${count} ảnh</div>
+            </div>
+          `;
+          item.addEventListener('click', () => {
+            amCurrentAlbumId = album.id;
+            amSelectedPhotos.clear();
+            renderAmAlbumList();
+            renderAmDetail(album);
+          });
+          amAlbumList.appendChild(item);
+        });
+      }
+
+      async function renderAmDetail(album) {
+        amDetailEmpty.style.display = 'none';
+        amDetailContent.style.display = 'flex';
+        amDetailName.value = album.name;
+        amDetailToolbar.style.display = 'none';
+
+        const images = await getImagesByAlbum(album.id);
+        amDetailInfo.textContent = `${images.length} ảnh`;
+
+        if (images.length === 0) {
+          amDetailGrid.style.display = 'none';
+          amDetailEmptyPhotos.style.display = 'flex';
+        } else {
+          amDetailEmptyPhotos.style.display = 'none';
+          amDetailGrid.style.display = 'grid';
+          amDetailGrid.innerHTML = images.map(img => `
+            <div class="am-photo-item${amSelectedPhotos.has(img.id) ? ' selected' : ''}" data-id="${img.id}">
+              <img src="${img.dataUrl}" alt="" loading="lazy">
+            </div>
+          `).join('');
+        }
+      }
+
+      // Photo selection
+      amDetailGrid.addEventListener('click', (e) => {
+        const item = e.target.closest('.am-photo-item');
+        if (!item) return;
+        const id = Number(item.dataset.id) || item.dataset.id;
+        if (amSelectedPhotos.has(id)) {
+          amSelectedPhotos.delete(id);
+          item.classList.remove('selected');
+        } else {
+          amSelectedPhotos.add(id);
+          item.classList.add('selected');
+        }
+        updateAmToolbar();
+      });
+
+      function updateAmToolbar() {
+        if (amSelectedPhotos.size > 0) {
+          amDetailToolbar.style.display = 'flex';
+          amSelectedCount.textContent = `${amSelectedPhotos.size} ảnh đã chọn`;
+        } else {
+          amDetailToolbar.style.display = 'none';
+        }
+      }
+
+      amDeselectAll.addEventListener('click', () => {
+        amSelectedPhotos.clear();
+        amDetailGrid.querySelectorAll('.am-photo-item.selected').forEach(el => el.classList.remove('selected'));
+        updateAmToolbar();
+      });
+
+      // Create album
+      amCreateBtn.addEventListener('click', async () => {
+        const name = amCreateInput.value.trim();
+        if (!name) { amCreateInput.focus(); return; }
+        const album = {
+          id: Date.now() + Math.random(),
+          name: name,
+          icon: '📷',
+          createdAt: Date.now()
+        };
+        await saveAlbum(album);
+        amCreateInput.value = '';
+        amCurrentAlbumId = album.id;
+        await renderAmAlbumList();
+        renderAmDetail(album);
+      });
+
+      amCreateInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') amCreateBtn.click();
+      });
+
+      // Save album name
+      amSaveName.addEventListener('click', async () => {
+        if (!amCurrentAlbumId) return;
+        const newName = amDetailName.value.trim();
+        if (!newName) return;
+        const albums = await getAllAlbums();
+        const album = albums.find(a => a.id === amCurrentAlbumId);
+        if (album) {
+          album.name = newName;
+          await saveAlbum(album);
+          await renderAmAlbumList();
+          amDetailName.blur();
+        }
+      });
+
+      amDetailName.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { amSaveName.click(); e.preventDefault(); }
+      });
+
+      // Delete album
+      amDeleteAlbum.addEventListener('click', async () => {
+        if (!amCurrentAlbumId) return;
+        const albums = await getAllAlbums();
+        const album = albums.find(a => a.id === amCurrentAlbumId);
+        if (!album) return;
+        const images = await getImagesByAlbum(amCurrentAlbumId);
+        const msg = images.length > 0
+          ? `Xóa album "${album.name}" và ${images.length} ảnh bên trong?`
+          : `Xóa album "${album.name}"?`;
+        if (!confirm(msg)) return;
+        for (const img of images) {
+          await deleteImage(img.id);
+        }
+        await deleteAlbum(amCurrentAlbumId);
+        amCurrentAlbumId = null;
+        amSelectedPhotos.clear();
+        await renderAmAlbumList();
+        showAmEmpty();
+      });
+
+      // Add photos to album
+      amAddPhotos.addEventListener('click', () => { amFileInput.click(); });
+      amFileInput.addEventListener('change', async () => {
+        if (!amCurrentAlbumId || !amFileInput.files.length) return;
+        const files = Array.from(amFileInput.files);
+        const imagesToSave = [];
+        for (const file of files) {
+          const dataUrl = await new Promise(r => {
+            const reader = new FileReader();
+            reader.onload = e => r(e.target.result);
+            reader.readAsDataURL(file);
+          });
+          imagesToSave.push({
+            id: Date.now() + Math.random(),
+            dataUrl,
+            addedAt: Date.now(),
+            name: file.name,
+            albumId: amCurrentAlbumId
+          });
+        }
+        await saveImages(imagesToSave);
+        amFileInput.value = '';
+        const albums = await getAllAlbums();
+        const album = albums.find(a => a.id === amCurrentAlbumId);
+        await renderAmAlbumList();
+        if (album) renderAmDetail(album);
+      });
+
+      // Remove photos from album
+      amRemovePhotos.addEventListener('click', async () => {
+        if (amSelectedPhotos.size === 0) return;
+        if (!confirm(`Xóa ${amSelectedPhotos.size} ảnh đã chọn?`)) return;
+        for (const id of amSelectedPhotos) {
+          await deleteImage(id);
+        }
+        amSelectedPhotos.clear();
+        const albums = await getAllAlbums();
+        const album = albums.find(a => a.id === amCurrentAlbumId);
+        await renderAmAlbumList();
+        if (album) renderAmDetail(album);
+      });
+
+      // Move photos to another album
+      amMovePhotos.addEventListener('click', async () => {
+        if (amSelectedPhotos.size === 0) return;
+        const albums = await getAllAlbums();
+        amMoveList.innerHTML = '';
+
+        // Option: Không phân loại
+        const noAlbumItem = document.createElement('div');
+        noAlbumItem.className = 'am-move-item';
+        noAlbumItem.innerHTML = '📂 Không phân loại (Tất Cả)';
+        noAlbumItem.addEventListener('click', async () => {
+          await moveSelectedPhotos(null);
+        });
+        amMoveList.appendChild(noAlbumItem);
+
+        albums.forEach(album => {
+          if (album.id === amCurrentAlbumId) return; // skip current
+          const item = document.createElement('div');
+          item.className = 'am-move-item';
+          item.innerHTML = `${album.icon || '📷'} ${album.name}`;
+          item.addEventListener('click', async () => {
+            await moveSelectedPhotos(album.id);
+          });
+          amMoveList.appendChild(item);
+        });
+        amMoveDialog.style.display = 'flex';
+      });
+
+      async function moveSelectedPhotos(targetAlbumId) {
+        const allImages = await getAllImages();
+        const toUpdate = allImages.filter(img => amSelectedPhotos.has(img.id));
+        for (const img of toUpdate) {
+          img.albumId = targetAlbumId;
+        }
+        await saveImages(toUpdate);
+        amSelectedPhotos.clear();
+        amMoveDialog.style.display = 'none';
+        const albums = await getAllAlbums();
+        const album = albums.find(a => a.id === amCurrentAlbumId);
+        await renderAmAlbumList();
+        if (album) renderAmDetail(album);
+      }
+
+      amMoveCancel.addEventListener('click', () => { amMoveDialog.style.display = 'none'; });
+
+      // Escape to close
+      amModal.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (amMoveDialog.style.display !== 'none') {
+            amMoveDialog.style.display = 'none';
+          } else {
+            closeAlbumManager();
+          }
+        }
+      });
 
     /* ===== SCROLL REVEAL ===== */
     const revealEls = document.querySelectorAll('.reveal');
@@ -3641,6 +5419,7 @@
         createPetals();
         renderSlideshow(datasetImages.slice(0, 12));
         renderDataset('grid');
+        await renderAlbumTabs();
         await renderPersonal();
       } catch (e) {
         console.error('Init error:', e);
