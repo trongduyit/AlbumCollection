@@ -521,6 +521,14 @@
       color: white;
       border-color: var(--pink-accent);
       box-shadow: 0 4px 24px rgba(201,134,154,0.4);
+      width: 36px;
+      height: 36px;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+    .music-btn.playing:hover {
+      opacity: 1;
+      transform: scale(1.1);
     }
 
     .music-panel {
@@ -3110,7 +3118,7 @@
   </div>
 
   <!-- Audio element -->
-  <audio id="bgMusic" preload="auto" crossorigin="anonymous">
+  <audio id="bgMusic" preload="auto">
     <source src="assets/music/music.mp3" type="audio/mpeg">
   </audio>
 
@@ -3856,6 +3864,7 @@
         stopWebAudio();
         musicBtn.classList.remove('playing');
         musicBtn.textContent = '🎵';
+        musicPanel.classList.remove('open');
         musicWave.classList.add('paused');
         musicWave.querySelectorAll('span').forEach(s => { s.style.height = '4px'; s.style.animationPlayState = 'paused'; });
         musicPlaying = false;
@@ -3863,7 +3872,8 @@
         // PLAY
         musicPlaying = true;
         musicBtn.classList.add('playing');
-        musicBtn.textContent = '🔊';
+        musicBtn.textContent = '♫';
+        musicPanel.classList.remove('open');
         musicWave.classList.remove('paused');
         musicWave.querySelectorAll('span').forEach(s => s.style.animationPlayState = 'running');
 
