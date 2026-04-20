@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -2168,148 +2168,7 @@
       .pm-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
       .pm-img-del { top: auto; bottom: 60px; right: 24px; }
     }
-  
-    /* ===== CUTE SECTION EFFECTS ===== */
-    
-    /* Hero: Sparkle floating particles */
-    .hero { position: relative; overflow: hidden; }
-    .sparkle {
-      position: absolute;
-      width: 6px; height: 6px;
-      background: radial-gradient(circle, rgba(255,255,255,0.9), transparent);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: sparkleFloat 4s ease-in-out infinite;
-    }
-    @keyframes sparkleFloat {
-      0% { opacity: 0; transform: translateY(0) scale(0); }
-      20% { opacity: 1; transform: translateY(-30px) scale(1); }
-      80% { opacity: 0.6; transform: translateY(-120px) scale(0.8); }
-      100% { opacity: 0; transform: translateY(-180px) scale(0); }
-    }
-
-    /* Slideshow: Gentle bounce-in */
-    .slideshow-section .section-header.visible { animation: gentleBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
-    @keyframes gentleBounce {
-      0% { opacity: 0; transform: translateY(40px) scale(0.9); }
-      60% { transform: translateY(-8px) scale(1.02); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* Dataset: Staggered card tilt */
-    .reveal.visible .photo-item { animation: cardTilt 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .reveal.visible .photo-item:nth-child(2) { animation-delay: 0.1s; }
-    .reveal.visible .photo-item:nth-child(3) { animation-delay: 0.15s; }
-    .reveal.visible .photo-item:nth-child(4) { animation-delay: 0.2s; }
-    .reveal.visible .photo-item:nth-child(5) { animation-delay: 0.25s; }
-    .reveal.visible .photo-item:nth-child(6) { animation-delay: 0.3s; }
-    .album-dataset .photo-item:nth-child(odd) { --tilt: 2deg; }
-    .album-dataset .photo-item:nth-child(even) { --tilt: -2deg; }
-    @keyframes cardTilt {
-      0% { opacity: 0; transform: rotate(var(--tilt, 2deg)) translateY(30px) scale(0.9); }
-      100% { opacity: 1; transform: rotate(0deg) translateY(0) scale(1); }
-    }
-
-    /* Upload: Rainbow border pulse */
-    .upload-section .reveal.visible .upload-zone, .upload-section .upload-zone {
-      background-size: 300% 300%;
-      animation: rainbowBorder 4s ease infinite;
-    }
-    @keyframes rainbowBorder {
-      0% { border-color: var(--pink-accent); box-shadow: 0 0 20px rgba(201,134,154,0.2); }
-      33% { border-color: var(--blue-sea); box-shadow: 0 0 20px rgba(138,172,200,0.2); }
-      66% { border-color: var(--green-light); box-shadow: 0 0 20px rgba(168,191,160,0.2); }
-      100% { border-color: var(--pink-accent); box-shadow: 0 0 20px rgba(201,134,154,0.2); }
-    }
-    .upload-section .upload-icon { animation: wiggle 2s ease-in-out infinite; }
-    .reveal.visible ~ .upload-zone .upload-icon, .upload-section .upload-icon { animation: wiggle 2s ease-in-out infinite; }
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(-8deg); }
-      75% { transform: rotate(8deg); }
-    }
-
-    /* Personal Album: Heartbeat hover */
-    .album-personal .personal-item:hover {
-      animation: heartbeat 0.6s ease-in-out;
-    }
-    @keyframes heartbeat {
-      0% { transform: scale(1); }
-      25% { transform: scale(1.05); }
-      50% { transform: scale(0.98); }
-      75% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-
-    /* Footer: Gradient text shimmer */
-    .footer .footer-text {
-      background: linear-gradient(90deg, var(--pink-accent), var(--blue-sea), var(--gold-light), var(--pink-accent));
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: textShimmer 5s ease infinite;
-    }
-    @keyframes textShimmer {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Section reveal with different effects */
-    .section.reveal-bounce { animation: revealBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
-    @keyframes revealBounce {
-      0% { opacity: 0; transform: translateY(60px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Cute cursor sparkle trail */
-    .cursor-sparkle {
-      position: fixed;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      animation: cursorPop 0.6s ease forwards;
-    }
-    @keyframes cursorPop {
-      0% { opacity: 1; transform: scale(1); }
-      100% { opacity: 0; transform: scale(0) translateY(-20px); }
-    }
-
-    /* Floating hearts for personal album */
-    .float-heart {
-      position: fixed;
-      font-size: 1.2rem;
-      pointer-events: none;
-      z-index: 999;
-      animation: floatHeart 2s ease forwards;
-    }
-    @keyframes floatHeart {
-      0% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
-      50% { opacity: 0.8; transform: translateY(-60px) scale(1.2) rotate(15deg); }
-      100% { opacity: 0; transform: translateY(-150px) scale(0.5) rotate(-15deg); }
-    }
-
-    /* Nav link hover sparkle */
-    .nav-links a:hover { position: relative; }
-    .nav-links a::after {
-      content: '\2728';
-      position: absolute;
-      right: -4px;
-      top: -4px;
-      font-size: 0.6rem;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .nav-links a:hover::after { opacity: 1; animation: sparkleNav 0.5s ease; }
-    @keyframes sparkleNav {
-      0% { transform: scale(0) rotate(0deg); }
-      50% { transform: scale(1.3) rotate(180deg); }
-      100% { transform: scale(1) rotate(360deg); }
-    }
-
-    </style>
+  </style>
 </head>
 <body>
 
@@ -2324,7 +2183,7 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#slideshow"><span>🎬</span> Trình diễn Album ảnh</a></li>
+        <li><a href="#slideshow"><span>🎬</span> Chiếu Ảnh</a></li>
         <li><a href="#dataset"><span>📸</span> Album HN</a></li>
         <li><a href="#upload"><span>📷</span> Upload</a></li>
         <li><a href="#personal"><span>💎</span> Album Riêng</a></li>
@@ -2460,7 +2319,7 @@
   <!-- SLIDESHOW SECTION -->
   <section class="section slideshow-section" id="slideshow">
     <div class="section-header reveal">
-      <h2 class="section-title">Trình diễn Album ảnh</h2>
+      <h2 class="section-title">Chiếu Ảnh</h2>
       <p class="section-subtitle">Những khoảnh khắc đẹp nhất của Hà Nội</p>
     </div>
     <div class="slideshow-wrapper reveal">
@@ -2709,13 +2568,13 @@
       "assets/images/z7740997134978_7fe67e3ba592259f846ec9653b87d611.jpg",
       "assets/images/z7740997141423_28436f4eb44d5869f47e58e7c1a44ea0.jpg",
       "assets/images/z7740997141653_06b224836161606ffbd416a37c3d61a2.jpg",
-      "assets/images/z7740997149876_0fb620f99f2cf5227b1668dad4e322c6.jpg",
+      "assets/images/z7740997149876_0fb62099f2cf5227b1668dad4e322c6.jpg",
       "assets/images/z7740997150473_9e8b4e62888c11181430b5bd70e53645.jpg",
       "assets/images/z7740997159523_686c61831382cbd96194e931fae64f23.jpg",
       "assets/images/z7740997162265_d7a5dfffb5c19c0b53b8ec11e750baa7.jpg",
       "assets/images/z7740997165288_3c9a688260e0a7919538d5770850eec7.jpg",
-      "assets/images/z7740997165452_c4761caeac627387c52d6e2fc6aaac80.jpg",
-      "assets/images/z7740997175344_eb64c5ceec3419f9b1499c99dda3dc7e.jpg",
+      "assets/images/z7740997165452_c4761caeac627387c52d6e2fc2aaac80.jpg",
+      "assets/images/z7740997175344_eb64c5ceec3419f9b149c9c99dda3dc7e.jpg",
       "assets/images/z7740997180113_98c46db97f1b0d6b05cf32dfbc701a2c.jpg",
       "assets/images/z7740997180446_ed1169227c345e5a1ac8168c01f2b113.jpg",
       "assets/images/z7740997188623_97abbade42420040b34d9f0c51896e39.jpg",
@@ -2723,7 +2582,7 @@
       "assets/images/z7740997194928_78b1f7073326a74b9fe839bf6772e729.jpg",
       "assets/images/z7740997198082_4d10073181ca9c7a5a1e614b0b6d9bd1.jpg",
       "assets/images/z7740997202132_9a8d0cdf97e1bf46eef0ba25c2dd7276.jpg",
-      "assets/images/z7740997208035_7a8eea6818748d4bbbb0055f4a5c9bf3.jpg",
+      "assets/images/z7740997208035_7a8ee6818748d4bbbb0055f4a5c9bf3.jpg",
       "assets/images/z7740997215321_7bd6527a509ec6631236ee1eb1a0feac.jpg",
       "assets/images/z7740997215551_eb58271d799959522c7e62ab477bc328.jpg",
       "assets/images/z7740997221704_a3ca5a846e179649493f0e123eb9804b.jpg",
@@ -2734,7 +2593,7 @@
       "assets/images/z7740997327093_7c91fa3d5e4377c0065d135620f3a501.jpg",
       "assets/images/z7740997359304_c34980ba168e764517037485cb2363ac.jpg",
       "assets/images/z7740997381761_bbb0dea3087ac1e7acad664ff953a993.jpg",
-      "assets/images/z7740997390628_4ae4ba84ceb861c3cf3c6651d1a0415a.jpg",
+      "assets/images/z7740997390628_4ae4ba84ceb861c3cf3c6655d1a0415a.jpg",
       "assets/images/z7740997422142_99388f521bcbf4ba42d4d1087b0e57d8.jpg",
       "assets/images/z7741007733637_00aa2e9e6a918c57446fd2bd41837745.jpg",
       "assets/images/z7741137314427_0429cffe6202f5d366ac3f7c56ecdd6c.jpg"
@@ -2817,1346 +2676,976 @@
     }
 
     /* ===== NAV MENU ===== */
-document.addEventListener('DOMContentLoaded', () => {
-      const navMenu = document.getElementById('navMenu');
-      const navToggle = document.getElementById('navToggle');
-      const navLinks = document.getElementById('navLinks');
-  
-      navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  
-      window.addEventListener('scroll', () => {
-        navMenu.classList.toggle('scrolled', window.scrollY > 50);
-      });
-  
-      navLinks.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => navLinks.classList.remove('open'));
-      });
-  
-      // Dropdown: Quản Lý
-      const manageDropdown = document.querySelector('.nav-dropdown');
-      const manageToggle = document.getElementById('navManageToggle');
-      manageToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = manageDropdown.classList.contains('open');
-        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-        if (!isOpen) manageDropdown.classList.add('open');
-      });
-  
-      document.getElementById('navOpenManager').addEventListener('click', () => {
-        manageDropdown.classList.remove('open');
-        openPhotoManager();
-      });
-  
-      document.getElementById('navOpenUpload').addEventListener('click', () => {
-        manageDropdown.classList.remove('open');
-        document.getElementById('upload').scrollIntoView({ behavior: 'smooth' });
-      });
-  
-      document.getElementById('navClearAll').addEventListener('click', async () => {
-        manageDropdown.classList.remove('open');
-        if (confirm('Xóa toàn bộ album riêng?')) {
-          await clearAllImages();
-          await renderPersonal();
-        }
-      });
-  
-      document.getElementById('navShuffle').addEventListener('click', async () => {
-        manageDropdown.classList.remove('open');
-        const images = await getAllImages();
-        for (let i = images.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [images[i], images[j]] = [images[j], images[i]];
-        }
-        for (const img of images) await saveImages([img]);
+    const navMenu = document.getElementById('navMenu');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    window.addEventListener('scroll', () => {
+      navMenu.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Dropdown: Quản Lý
+    const manageDropdown = document.querySelector('.nav-dropdown');
+    const manageToggle = document.getElementById('navManageToggle');
+    manageToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = manageDropdown.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      if (!isOpen) manageDropdown.classList.add('open');
+    });
+
+    document.getElementById('navOpenManager').addEventListener('click', () => {
+      manageDropdown.classList.remove('open');
+      openPhotoManager();
+    });
+
+    document.getElementById('navOpenUpload').addEventListener('click', () => {
+      manageDropdown.classList.remove('open');
+      document.getElementById('upload').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('navClearAll').addEventListener('click', async () => {
+      manageDropdown.classList.remove('open');
+      if (confirm('Xóa toàn bộ album riêng?')) {
+        await clearAllImages();
         await renderPersonal();
-      });
-  
-      document.getElementById('navExport').addEventListener('click', async () => {
-        manageDropdown.classList.remove('open');
-        const images = await getAllImages();
-        if (!images || images.length === 0) {
-          alert('Album riêng trống! Hãy thêm ảnh trước.');
-          return;
-        }
-        try {
-          // Build ZIP manually (no external library needed)
-          const zipParts = [];
-          const centralDir = [];
-          let offset = 0;
-          const encoder = new TextEncoder();
-
-          for (let i = 0; i < images.length; i++) {
-            const img = images[i];
-            const blob = img.data instanceof Blob ? img.data : new Blob([img.data]);
-            const arrayBuf = await blob.arrayBuffer();
-            const fileData = new Uint8Array(arrayBuf);
-            const ext = blob.type === 'image/png' ? 'png' : (blob.type === 'image/webp' ? 'webp' : 'jpg');
-            const fileName = `album_${String(i + 1).padStart(3, '0')}.${ext}`;
-            const fileNameBytes = encoder.encode(fileName);
-
-            // CRC32
-            let crc = 0xFFFFFFFF;
-            for (let j = 0; j < fileData.length; j++) {
-              crc ^= fileData[j];
-              for (let k = 0; k < 8; k++) crc = (crc >>> 1) ^ (crc & 1 ? 0xEDB88320 : 0);
-            }
-            crc ^= 0xFFFFFFFF;
-
-            // Local file header (30 + name + data)
-            const localHeader = new Uint8Array(30 + fileNameBytes.length);
-            const lhView = new DataView(localHeader.buffer);
-            lhView.setUint32(0, 0x04034b50, true);  // signature
-            lhView.setUint16(4, 20, true);            // version needed
-            lhView.setUint16(6, 0, true);             // flags
-            lhView.setUint16(8, 0, true);             // compression: store
-            lhView.setUint16(10, 0, true);            // mod time
-            lhView.setUint16(12, 0, true);            // mod date
-            lhView.setUint32(14, crc >>> 0, true);    // crc32
-            lhView.setUint32(18, fileData.length, true); // compressed size
-            lhView.setUint32(22, fileData.length, true); // uncompressed size
-            lhView.setUint16(26, fileNameBytes.length, true); // name length
-            lhView.setUint16(28, 0, true);             // extra length
-            localHeader.set(fileNameBytes, 30);
-
-            // Central directory entry
-            const cdEntry = new Uint8Array(46 + fileNameBytes.length);
-            const cdView = new DataView(cdEntry.buffer);
-            cdView.setUint32(0, 0x02014b50, true);
-            cdView.setUint16(4, 20, true);
-            cdView.setUint16(6, 20, true);
-            cdView.setUint16(8, 0, true);
-            cdView.setUint16(10, 0, true);
-            cdView.setUint16(12, 0, true);
-            cdView.setUint16(14, 0, true);
-            cdView.setUint32(16, crc >>> 0, true);
-            cdView.setUint32(20, fileData.length, true);
-            cdView.setUint32(24, fileData.length, true);
-            cdView.setUint16(28, fileNameBytes.length, true);
-            cdView.setUint16(30, 0, true);
-            cdView.setUint16(32, 0, true);
-            cdView.setUint16(34, 0, true);
-            cdView.setUint16(36, 0, true);
-            cdView.setUint32(38, 0x20, true);
-            cdView.setUint32(42, offset, true);
-            cdEntry.set(fileNameBytes, 46);
-            centralDir.push(cdEntry);
-
-            zipParts.push(localHeader, fileData);
-            offset += localHeader.length + fileData.length;
-          }
-
-          // End of central directory
-          let cdSize = 0;
-          centralDir.forEach(e => cdSize += e.length);
-          const eocd = new Uint8Array(22);
-          const eocdView = new DataView(eocd.buffer);
-          eocdView.setUint32(0, 0x06054b50, true);
-          eocdView.setUint16(4, 0, true);
-          eocdView.setUint16(6, 0, true);
-          eocdView.setUint16(8, images.length, true);
-          eocdView.setUint16(10, images.length, true);
-          eocdView.setUint32(12, cdSize, true);
-          eocdView.setUint32(16, offset, true);
-          eocdView.setUint16(20, 0, true);
-
-          const zipBlob = new Blob([...zipParts, ...centralDir, eocd], { type: 'application/zip' });
-          const url = URL.createObjectURL(zipBlob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'HaNoiDiuDang_Album.zip';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-
-          // Cute floating hearts effect on download
-          for (let i = 0; i < 8; i++) {
-            setTimeout(() => {
-              const heart = document.createElement('div');
-              heart.className = 'float-heart';
-              heart.textContent = ['\U0001f496','\U0001f338','\u2728','\U0001f495','\U0001f380'][Math.floor(Math.random()*5)];
-              heart.style.left = (Math.random() * window.innerWidth) + 'px';
-              heart.style.top = (window.innerHeight - 50) + 'px';
-              document.body.appendChild(heart);
-              setTimeout(() => heart.remove(), 2000);
-            }, i * 150);
-          }
-        } catch (err) {
-          console.error('ZIP export error:', err);
-          alert('Lỗi khi tạo file ZIP. Vui lòng thử lại.');
-        }
-      });
-  
-      // Dropdown: Cài Đặt
-      const settingsDropdown = document.getElementById('navSettingsToggle').closest('.nav-dropdown');
-      const settingsToggle = document.getElementById('navSettingsToggle');
-      settingsToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = settingsDropdown.classList.contains('open');
-        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-        if (!isOpen) settingsDropdown.classList.add('open');
-      });
-  
-      // Color swatches
-      document.querySelectorAll('.color-swatch').forEach(swatch => {
-        swatch.addEventListener('click', () => {
-          document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
-          swatch.classList.add('active');
-          const color = swatch.dataset.color;
-          const palettes = {
-            pink: { '--pink-accent': '#C9869A', '--pink-light': '#EBC8D8', '--pink-bg': '#F2DCE8' },
-            blue: { '--pink-accent': '#8AACC8', '--pink-light': '#B5C7D3', '--pink-bg': '#DCE8F0' },
-            gold: { '--pink-accent': '#D4AF7A', '--pink-light': '#E8D4B8', '--pink-bg': '#F5EFE0' },
-            green: { '--pink-accent': '#A8BFA0', '--pink-light': '#C8D8BC', '--pink-bg': '#E8F0E4' },
-          };
-          const p = palettes[color];
-          if (p) Object.entries(p).forEach(([k, v]) => document.documentElement.style.setProperty(k, v));
-          localStorage.setItem('hanoi_color', color);
-        });
-      });
-  
-      // Load saved color
-      const savedColor = localStorage.getItem('hanoi_color');
-      if (savedColor) {
-        const swatch = document.querySelector(`.color-swatch[data-color="${savedColor}"]`);
-        if (swatch) swatch.click();
       }
-  
-      // View swatches
-      document.querySelectorAll('.nav-view-picker .view-swatch').forEach(swatch => {
-        swatch.addEventListener('click', () => {
-          document.querySelectorAll('.nav-view-picker .view-swatch').forEach(s => s.classList.remove('active'));
-          swatch.classList.add('active');
-          const view = swatch.dataset.view;
-          document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
-          renderDataset(view);
-          localStorage.setItem('hanoi_view', view);
-        });
-      });
-  
-      // Load saved view
-      const savedView = localStorage.getItem('hanoi_view');
-      if (savedView) {
-        const swatch = document.querySelector(`.nav-view-picker .view-swatch[data-view="${savedView}"]`);
-        if (swatch) swatch.click();
+    });
+
+    document.getElementById('navShuffle').addEventListener('click', async () => {
+      manageDropdown.classList.remove('open');
+      const images = await getAllImages();
+      for (let i = images.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [images[i], images[j]] = [images[j], images[i]];
       }
-  
-      // Slide speed
-      const slideSpeedSlider = document.getElementById('navSlideSpeed');
-      const slideSpeedVal = document.getElementById('navSlideSpeedVal');
-      slideSpeedSlider.addEventListener('input', () => {
-        slideSpeedVal.textContent = slideSpeedSlider.value + 's / ảnh';
-        localStorage.setItem('hanoi_slide_speed', slideSpeedSlider.value);
+      for (const img of images) await saveImages([img]);
+      await renderPersonal();
+    });
+
+    document.getElementById('navExport').addEventListener('click', () => {
+      manageDropdown.classList.remove('open');
+      alert('Tính năng tải ZIP sẽ sớm ra mắt!');
+    });
+
+    // Dropdown: Cài Đặt
+    const settingsDropdown = document.querySelector('.nav-dropdown:last-of-type');
+    const settingsToggle = document.getElementById('navSettingsToggle');
+    settingsToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = settingsDropdown.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      if (!isOpen) settingsDropdown.classList.add('open');
+    });
+
+    // Color swatches
+    document.querySelectorAll('.color-swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        const color = swatch.dataset.color;
+        const palettes = {
+          pink: { '--pink-accent': '#C9869A', '--pink-light': '#EBC8D8', '--pink-bg': '#F2DCE8' },
+          blue: { '--pink-accent': '#8AACC8', '--pink-light': '#B5C7D3', '--pink-bg': '#DCE8F0' },
+          gold: { '--pink-accent': '#D4AF7A', '--pink-light': '#E8D4B8', '--pink-bg': '#F5EFE0' },
+          green: { '--pink-accent': '#A8BFA0', '--pink-light': '#C8D8BC', '--pink-bg': '#E8F0E4' },
+        };
+        const p = palettes[color];
+        if (p) Object.entries(p).forEach(([k, v]) => document.documentElement.style.setProperty(k, v));
+        localStorage.setItem('hanoi_color', color);
       });
-  
-      const savedSpeed = localStorage.getItem('hanoi_slide_speed');
-      if (savedSpeed) {
-        slideSpeedSlider.value = savedSpeed;
-        slideSpeedVal.textContent = savedSpeed + 's / ảnh';
-      }
-  
-      // Toggles
-      const petalsToggle = document.getElementById('navPetals');
-      petalsToggle.addEventListener('change', () => {
-        document.querySelectorAll('.hero-petal').forEach(p => {
-          p.style.display = petalsToggle.checked ? '' : 'none';
-        });
-        localStorage.setItem('hanoi_petals', petalsToggle.checked);
+    });
+
+    // Load saved color
+    const savedColor = localStorage.getItem('hanoi_color');
+    if (savedColor) {
+      const swatch = document.querySelector(`.color-swatch[data-color="${savedColor}"]`);
+      if (swatch) swatch.click();
+    }
+
+    // View swatches
+    document.querySelectorAll('.nav-view-picker .view-swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        document.querySelectorAll('.nav-view-picker .view-swatch').forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        const view = swatch.dataset.view;
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
+        renderDataset(view);
+        localStorage.setItem('hanoi_view', view);
       });
-  
-      const soundToggle = document.getElementById('navSound');
-      soundToggle.addEventListener('change', () => {
-        if (!soundToggle.checked) {
-          bgMusic.pause();
-          musicPlaying = false;
-        }
-        localStorage.setItem('hanoi_sound', soundToggle.checked);
+    });
+
+    // Load saved view
+    const savedView = localStorage.getItem('hanoi_view');
+    if (savedView) {
+      const swatch = document.querySelector(`.nav-view-picker .view-swatch[data-view="${savedView}"]`);
+      if (swatch) swatch.click();
+    }
+
+    // Slide speed
+    const slideSpeedSlider = document.getElementById('navSlideSpeed');
+    const slideSpeedVal = document.getElementById('navSlideSpeedVal');
+    slideSpeedSlider.addEventListener('input', () => {
+      slideSpeedVal.textContent = slideSpeedSlider.value + 's / ảnh';
+      localStorage.setItem('hanoi_slide_speed', slideSpeedSlider.value);
+    });
+
+    const savedSpeed = localStorage.getItem('hanoi_slide_speed');
+    if (savedSpeed) {
+      slideSpeedSlider.value = savedSpeed;
+      slideSpeedVal.textContent = savedSpeed + 's / ảnh';
+    }
+
+    // Toggles
+    const petalsToggle = document.getElementById('navPetals');
+    petalsToggle.addEventListener('change', () => {
+      document.querySelectorAll('.hero-petal').forEach(p => {
+        p.style.display = petalsToggle.checked ? '' : 'none';
       });
-  
-      // Load settings
-      if (localStorage.getItem('hanoi_petals') === 'false') {
-        petalsToggle.checked = false;
-        document.querySelectorAll('.hero-petal').forEach(p => p.style.display = 'none');
-      }
-  
-      // Close dropdowns when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-dropdown')) {
-          document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-        }
-      });
-  
-      /* ===== MUSIC PLAYER ===== */
-      const musicBtn = document.getElementById('musicBtn');
-      const musicPanel = document.getElementById('musicPanel');
-      const musicWave = document.getElementById('musicWave');
-      const volumeSlider = document.getElementById('volumeSlider');
-      const bgMusic = document.getElementById('bgMusic');
-  
-      let musicPlaying = false;
-      let webAudioCtx = null;
-      let webAudioTimeout = null;
-      const NOTE_FREQS = [220, 261.63, 293.66, 329.63, 392, 440, 523.25, 587.33, 659.25, 784, 880];
-  
-      // Web Audio API — piano ambient tự tạo
-      function playWebAudioPiano() {
-        if (!musicPlaying || !webAudioCtx) return;
-        const vol = parseFloat(volumeSlider.value) / 100 * 0.06;
-        const note = NOTE_FREQS[Math.floor(Math.random() * NOTE_FREQS.length)];
-        const osc = webAudioCtx.createOscillator();
-        const g = webAudioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.value = note;
-        g.gain.setValueAtTime(0, webAudioCtx.currentTime);
-        g.gain.linearRampToValueAtTime(vol, webAudioCtx.currentTime + 0.5);
-        g.gain.exponentialRampToValueAtTime(0.001, webAudioCtx.currentTime + 4);
-        osc.connect(g);
-        g.connect(webAudioCtx.destination);
-        osc.start();
-        osc.stop(webAudioCtx.currentTime + 4);
-  
-        // Next note after 3-7 giây
-        webAudioTimeout = setTimeout(() => playWebAudioPiano(), 3000 + Math.random() * 4000);
-      }
-  
-      function startWebAudio() {
-        if (webAudioCtx) return;
-        webAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        playWebAudioPiano();
-      }
-  
-      function stopWebAudio() {
+      localStorage.setItem('hanoi_petals', petalsToggle.checked);
+    });
+
+    const soundToggle = document.getElementById('navSound');
+    soundToggle.addEventListener('change', () => {
+      if (!soundToggle.checked) {
+        bgMusic.pause();
         musicPlaying = false;
-        clearTimeout(webAudioTimeout);
-        if (webAudioCtx) {
-          webAudioCtx.close();
-          webAudioCtx = null;
-        }
       }
-  
-      // Lấy volume từ slider (0-100 → 0-1)
-      function getVolume() { return volumeSlider.value / 100; }
-  
-      async function toggleMusic() {
-        if (musicPlaying) {
-          // STOP
-          bgMusic.pause();
-          bgMusic.currentTime = 0;
-          stopWebAudio();
-          musicBtn.classList.remove('playing');
-          musicBtn.textContent = '🎵';
-          musicWave.classList.add('paused');
-          musicWave.querySelectorAll('span').forEach(s => { s.style.height = '4px'; s.style.animationPlayState = 'paused'; });
-          musicPlaying = false;
-        } else {
-          // PLAY
-          musicPlaying = true;
-          musicBtn.classList.add('playing');
-          musicBtn.textContent = '🔊';
-          musicWave.classList.remove('paused');
-          musicWave.querySelectorAll('span').forEach(s => s.style.animationPlayState = 'running');
-  
-          // Wave animation
-          musicWave.querySelectorAll('span').forEach((s, i) => {
-            s.style.height = (8 + Math.sin(i * 1.2) * 12) + 'px';
-          });
-  
-          // 1️⃣ Thử phát file MP3
-          bgMusic.volume = getVolume();
-          bgMusic.currentTime = 0;
-          const playPromise = bgMusic.play();
-  
-          if (playPromise !== undefined) {
-            playPromise.then(() => {
-              console.log('✅ MP3 phát thành công!');
-            }).catch(async (err) => {
-              console.warn('⚠️ MP3 lỗi:', err, '→ chuyển Web Audio');
-              bgMusic.pause();
-              // 2️⃣ Fallback: Web Audio API piano
-              startWebAudio();
-            });
-          }
-        }
+      localStorage.setItem('hanoi_sound', soundToggle.checked);
+    });
+
+    // Load settings
+    if (localStorage.getItem('hanoi_petals') === 'false') {
+      petalsToggle.checked = false;
+      document.querySelectorAll('.hero-petal').forEach(p => p.style.display = 'none');
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
       }
-  
-      // Nút 🎵 click
-      musicBtn.addEventListener('click', () => {
-        musicPanel.classList.toggle('open');
-        toggleMusic();
-      });
-  
-      // Volume slider
-      volumeSlider.addEventListener('input', () => {
+    });
+
+    /* ===== MUSIC PLAYER ===== */
+    const musicBtn = document.getElementById('musicBtn');
+    const musicPanel = document.getElementById('musicPanel');
+    const musicWave = document.getElementById('musicWave');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const bgMusic = document.getElementById('bgMusic');
+
+    let musicPlaying = false;
+    let webAudioCtx = null;
+    let webAudioTimeout = null;
+    const NOTE_FREQS = [220, 261.63, 293.66, 329.63, 392, 440, 523.25, 587.33, 659.25, 784, 880];
+
+    // Web Audio API — piano ambient tự tạo
+    function playWebAudioPiano() {
+      if (!musicPlaying || !webAudioCtx) return;
+      const vol = parseFloat(volumeSlider.value) / 100 * 0.06;
+      const note = NOTE_FREQS[Math.floor(Math.random() * NOTE_FREQS.length)];
+      const osc = webAudioCtx.createOscillator();
+      const g = webAudioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = note;
+      g.gain.setValueAtTime(0, webAudioCtx.currentTime);
+      g.gain.linearRampToValueAtTime(vol, webAudioCtx.currentTime + 0.5);
+      g.gain.exponentialRampToValueAtTime(0.001, webAudioCtx.currentTime + 4);
+      osc.connect(g);
+      g.connect(webAudioCtx.destination);
+      osc.start();
+      osc.stop(webAudioCtx.currentTime + 4);
+
+      // Next note after 3-7 giây
+      webAudioTimeout = setTimeout(() => playWebAudioPiano(), 3000 + Math.random() * 4000);
+    }
+
+    function startWebAudio() {
+      if (webAudioCtx) return;
+      webAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      playWebAudioPiano();
+    }
+
+    function stopWebAudio() {
+      musicPlaying = false;
+      clearTimeout(webAudioTimeout);
+      if (webAudioCtx) {
+        webAudioCtx.close();
+        webAudioCtx = null;
+      }
+    }
+
+    // Lấy volume từ slider (0-100 → 0-1)
+    function getVolume() { return volumeSlider.value / 100; }
+
+    async function toggleMusic() {
+      if (musicPlaying) {
+        // STOP
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+        stopWebAudio();
+        musicBtn.classList.remove('playing');
+        musicBtn.textContent = '🎵';
+        musicWave.classList.add('paused');
+        musicWave.querySelectorAll('span').forEach(s => { s.style.height = '4px'; s.style.animationPlayState = 'paused'; });
+        musicPlaying = false;
+      } else {
+        // PLAY
+        musicPlaying = true;
+        musicBtn.classList.add('playing');
+        musicBtn.textContent = '🔊';
+        musicWave.classList.remove('paused');
+        musicWave.querySelectorAll('span').forEach(s => s.style.animationPlayState = 'running');
+
+        // Wave animation
+        musicWave.querySelectorAll('span').forEach((s, i) => {
+          s.style.height = (8 + Math.sin(i * 1.2) * 12) + 'px';
+        });
+
+        // 1️⃣ Thử phát file MP3
         bgMusic.volume = getVolume();
-      });
-  
-      // Pre-load audio
-      bgMusic.load();
-  
-      /* ===== SLIDESHOW ===== */
-      const slideshowTrack = document.getElementById('slideshowTrack');
-      const slideshowDots = document.getElementById('slideshowDots');
-      const ssPlay = document.getElementById('ssPlay');
-      const ssPrev = document.getElementById('ssPrev');
-      const ssNext = document.getElementById('ssNext');
-      let ssIndex = 0;
-      let ssPlaying = false;
-      let ssTimer = null;
-      let ssImages = [];
-      let ssEffectIdx = 0;
-      const ssEffects = ['active', 'zoom-in', 'slide-in'];
-  
-      function renderSlideshow(imgs) {
-        ssImages = imgs;
-        slideshowTrack.innerHTML = '';
-        imgs.forEach((src, i) => {
-          const slide = document.createElement('div');
-          slide.className = 'slideshow-slide' + (i === 0 ? ' active' : '');
-          slide.innerHTML = `<img class="slideshow-img-anim" src="${src}" alt="Slide ${i + 1}" loading="${i < 3 ? 'eager' : 'lazy'}">
-            <div class="slideshow-overlay"></div>
-            <div class="slideshow-caption">Hà Nội ${i + 1}</div>`;
-          slideshowTrack.appendChild(slide);
-        });
-        slideshowDots.innerHTML = '';
-        imgs.forEach((_, i) => {
-          const dot = document.createElement('button');
-          dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
-          dot.dataset.index = i;
-          slideshowDots.appendChild(dot);
-        });
-      }
-  
-      function setSlide(index, effect) {
-        const slides = slideshowTrack.querySelectorAll('.slideshow-slide');
-        const dots = slideshowDots.querySelectorAll('.slideshow-dot');
-        ssIndex = ((index % ssImages.length) + ssImages.length) % ssImages.length;
-  
-        // Remove all effect classes
-        slides.forEach(s => {
-          s.classList.remove('active', 'zoom-in', 'slide-in', 'zoom', 'slide-left');
-        });
-  
-        // Set the new active slide with effect
-        slides[ssIndex].className = 'slideshow-slide active ' + effect;
-        dots.forEach((d, i) => d.classList.toggle('active', i === ssIndex));
-      }
-  
-      function startSlideshow() {
-        ssPlaying = true;
-        ssEffectIdx = 0;
-        ssPlay.textContent = '⏸';
-        ssTimer = setInterval(() => {
-          ssEffectIdx = (ssEffectIdx + 1) % ssEffects.length;
-          setSlide(ssIndex + 1, ssEffects[ssEffectIdx]);
-        }, 4000);
-      }
-  
-      function stopSlideshow() {
-        ssPlaying = false;
-        ssPlay.textContent = '▶';
-        clearInterval(ssTimer);
-      }
-  
-      ssPlay.addEventListener('click', () => {
-        if (ssPlaying) stopSlideshow();
-        else startSlideshow();
-      });
-      ssPrev.addEventListener('click', () => { stopSlideshow(); setSlide(ssIndex - 1, 'active'); });
-      ssNext.addEventListener('click', () => { stopSlideshow(); setSlide(ssIndex + 1, ssEffects[(ssEffectIdx + 1) % ssEffects.length]); });
-      slideshowDots.addEventListener('click', (e) => {
-        if (e.target.classList.contains('slideshow-dot')) {
-          stopSlideshow();
-          setSlide(parseInt(e.target.dataset.index), 'active');
-        }
-      });
-  
-      /* ===== RENDER DATASET GRID ===== */
-      function renderDataset(view = 'grid') {
-        const grid = document.getElementById('datasetGrid');
-        grid.className = 'photo-grid ' + view;
-        grid.innerHTML = datasetImages.map((src, i) => `
-          <div class="photo-item" data-index="${i}" style="animation-delay: ${(i % 12) * 0.05}s">
-            <img src="${src}" alt="Hà Nội ${i + 1}" loading="lazy">
-            <div class="photo-item-overlay"><span>Góc Hà Nội #${i + 1}</span></div>
-          </div>
-        `).join('');
-      }
-  
-      /* ===== PHOTO MANAGER ===== */
-      const pmModal = document.getElementById('pmModal');
-      const pmGrid = document.getElementById('pmGrid');
-      const pmEmpty = document.getElementById('pmEmpty');
-      const pmSelectBar = document.getElementById('pmSelectBar');
-      const pmSelectCount = document.getElementById('pmSelectCount');
-      const pmContentEdit = document.getElementById('pmContentEdit');
-      const pmContentUpload = document.getElementById('pmContentUpload');
-      const pmUploadZone = document.getElementById('pmUploadZone');
-      const pmFileInput = document.getElementById('pmFileInput');
-      const pmPreviewArea = document.getElementById('pmPreviewArea');
-      const pmPreviewGrid = document.getElementById('pmPreviewGrid');
-      const pmPreviewCount = document.getElementById('pmPreviewCount');
-      const pmBtnSave = document.getElementById('pmBtnSave');
-      const pmBtnCancel = document.getElementById('pmBtnCancel');
-      const pmImgModal = document.getElementById('pmImgModal');
-      const pmImgView = document.getElementById('pmImgView');
-      const pmImgDel = document.getElementById('pmImgDel');
-  
-      let pmImages = [];      // all images from IndexedDB
-      let pmSelected = new Set(); // selected IDs
-      let pmPendingFiles = [];    // files waiting to be saved
-      let pmViewIndex = 0;        // current view in preview modal
-  
-      function openPhotoManager() {
-        pmModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        switchTab('edit');
-        loadPmGrid();
-      }
-  
-      function closePhotoManager() {
-        pmModal.classList.remove('active');
-        document.body.style.overflow = '';
-        pmSelected.clear();
-        pmPendingFiles = [];
-      }
-  
-      function switchTab(tab) {
-        document.querySelectorAll('.pm-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
-        pmContentEdit.style.display = tab === 'edit' ? '' : 'none';
-        pmContentUpload.style.display = tab === 'upload' ? '' : 'none';
-        if (tab === 'upload') {
-          pmPendingFiles = [];
-          pmPreviewArea.classList.remove('active');
-          pmFileInput.value = '';
-        }
-      }
-  
-      async function loadPmGrid() {
-        pmImages = await getAllImages();
-        pmSelected.clear();
-        updatePmSelectBar();
-        renderPmGrid();
-      }
-  
-      function renderPmGrid() {
-        if (pmImages.length === 0) {
-          pmGrid.innerHTML = '';
-          pmEmpty.style.display = 'block';
-          return;
-        }
-        pmEmpty.style.display = 'none';
-        pmGrid.innerHTML = '';
-        pmImages.forEach((img, i) => {
-          const item = document.createElement('div');
-          item.className = 'pm-item' + (pmSelected.has(img.id) ? ' selected' : '');
-          item.dataset.id = img.id;
-          item.dataset.index = i;
-          item.style.animationDelay = (i * 0.04) + 's';
-          item.innerHTML = `
-            <img src="${img.dataUrl}" alt="Ảnh ${i + 1}" loading="lazy">
-            <div class="pm-item-overlay">${pmSelected.has(img.id) ? '✓' : 'Chọn'}</div>
-            <div class="pm-item-badge">${pmSelected.has(img.id) ? '✓' : ''}</div>`;
-          pmGrid.appendChild(item);
-        });
-      }
-  
-      function updatePmSelectBar() {
-        const n = pmSelected.size;
-        pmSelectBar.style.display = n > 0 ? 'flex' : 'none';
-        pmSelectCount.textContent = `${n} ảnh đã chọn`;
-      }
-  
-      // Grid click: select or preview
-      pmGrid.addEventListener('click', async (e) => {
-        const item = e.target.closest('.pm-item');
-        if (!item) return;
-  
-        const id = item.dataset.id;
-        const index = parseInt(item.dataset.index);
-  
-        if (e.ctrlKey || e.metaKey || e.shiftKey) {
-          // Toggle select
-          if (pmSelected.has(id)) pmSelected.delete(id);
-          else pmSelected.add(id);
-          updatePmSelectBar();
-          renderPmGrid();
-        } else {
-          // Open preview
-          pmViewIndex = index;
-          openPmImg(index);
-        }
-      });
-  
-      function openPmImg(index) {
-        pmViewIndex = index;
-        const img = pmImages[index];
-        pmImgView.src = img.dataUrl;
-        pmImgModal.classList.add('active');
-      }
-  
-      function closePmImg() {
-        pmImgModal.classList.remove('active');
-      }
-  
-      function pmImgNav(dir) {
-        pmViewIndex = ((pmViewIndex + dir + pmImages.length) % pmImages.length);
-        pmImgView.src = pmImages[pmViewIndex].dataUrl;
-      }
-  
-      // Delete current viewed image
-      pmImgDel.addEventListener('click', async () => {
-        const id = pmImages[pmViewIndex].id;
-        await deleteImage(id);
-        await loadPmGrid();
-        closePmImg();
-      });
-  
-      // Delete selected images
-      document.getElementById('pmDeleteSelected').addEventListener('click', async () => {
-        if (pmSelected.size === 0) return;
-        const confirmed = confirm(`Xóa ${pmSelected.size} ảnh đã chọn?`);
-        if (!confirmed) return;
-        for (const id of pmSelected) {
-          await deleteImage(id);
-        }
-        pmSelected.clear();
-        await loadPmGrid();
-      });
-  
-      document.getElementById('pmClearSelection').addEventListener('click', () => {
-        pmSelected.clear();
-        updatePmSelectBar();
-        renderPmGrid();
-      });
-  
-      // PM tab switching
-      document.querySelectorAll('.pm-tab').forEach(t => {
-        t.addEventListener('click', () => switchTab(t.dataset.tab));
-      });
-  
-      // Close PM modal
-      document.getElementById('pmClose').addEventListener('click', closePhotoManager);
-      pmImgModal.addEventListener('click', (e) => {
-        if (e.target === pmImgModal) closePmImg();
-      });
-  
-      // PM image nav
-      document.getElementById('pmImgPrev').addEventListener('click', () => pmImgNav(-1));
-      document.getElementById('pmImgNext').addEventListener('click', () => pmImgNav(1));
-      document.getElementById('pmImgClose').addEventListener('click', closePmImg);
-  
-      // PM upload zone
-      pmUploadZone.addEventListener('dragover', (e) => { e.preventDefault(); pmUploadZone.classList.add('drag-over'); });
-      pmUploadZone.addEventListener('dragleave', () => pmUploadZone.classList.remove('drag-over'));
-      pmUploadZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        pmUploadZone.classList.remove('drag-over');
-        handlePmFiles(e.dataTransfer.files);
-      });
-      pmFileInput.addEventListener('change', () => handlePmFiles(pmFileInput.files));
-  
-      function handlePmFiles(files) {
-        pmPendingFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
-        if (!pmPendingFiles.length) return;
-        pmPreviewArea.classList.add('active');
-        pmPreviewCount.textContent = pmPendingFiles.length;
-        pmPreviewGrid.innerHTML = '';
-        pmPendingFiles.forEach((file, i) => {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            const div = document.createElement('div');
-            div.className = 'pm-preview-item';
-            div.innerHTML = `<img src="${e.target.result}" alt="">
-              <button class="pm-preview-remove" data-idx="${i}">×</button>`;
-            pmPreviewGrid.appendChild(div);
-          };
-          reader.readAsDataURL(file);
-        });
-      }
-  
-      pmPreviewGrid.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('pm-preview-remove')) return;
-        const idx = parseInt(e.target.dataset.idx);
-        pmPendingFiles.splice(idx, 1);
-        pmPreviewCount.textContent = pmPendingFiles.length;
-        if (!pmPendingFiles.length) pmPreviewArea.classList.remove('active');
-        else handlePmFiles(Object.assign([], pmPendingFiles));
-      });
-  
-      pmBtnCancel.addEventListener('click', () => {
-        pmPendingFiles = [];
-        pmPreviewArea.classList.remove('active');
-        pmFileInput.value = '';
-      });
-  
-      pmBtnSave.addEventListener('click', async () => {
-        if (!pmPendingFiles.length) return;
-        pmBtnSave.textContent = '⏳ Đang lưu...';
-        pmBtnSave.disabled = true;
-        const toSave = [];
-        for (const file of pmPendingFiles) {
-          const dataUrl = await new Promise(r => {
-            const reader = new FileReader();
-            reader.onload = e => r(e.target.result);
-            reader.readAsDataURL(file);
+        bgMusic.currentTime = 0;
+        const playPromise = bgMusic.play();
+
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            console.log('✅ MP3 phát thành công!');
+          }).catch(async (err) => {
+            console.warn('⚠️ MP3 lỗi:', err, '→ chuyển Web Audio');
+            bgMusic.pause();
+            // 2️⃣ Fallback: Web Audio API piano
+            startWebAudio();
           });
-          toSave.push({ id: Date.now() + Math.random(), dataUrl, addedAt: Date.now(), name: file.name });
         }
-        await saveImages(toSave);
+      }
+    }
+
+    // Nút 🎵 click
+    musicBtn.addEventListener('click', () => {
+      musicPanel.classList.toggle('open');
+      toggleMusic();
+    });
+
+    // Volume slider
+    volumeSlider.addEventListener('input', () => {
+      bgMusic.volume = getVolume();
+    });
+
+    // Pre-load audio
+    bgMusic.load();
+
+    /* ===== SLIDESHOW ===== */
+    const slideshowTrack = document.getElementById('slideshowTrack');
+    const slideshowDots = document.getElementById('slideshowDots');
+    const ssPlay = document.getElementById('ssPlay');
+    const ssPrev = document.getElementById('ssPrev');
+    const ssNext = document.getElementById('ssNext');
+    let ssIndex = 0;
+    let ssPlaying = false;
+    let ssTimer = null;
+    let ssImages = [];
+    let ssEffectIdx = 0;
+    const ssEffects = ['active', 'zoom-in', 'slide-in'];
+
+    function renderSlideshow(imgs) {
+      ssImages = imgs;
+      slideshowTrack.innerHTML = '';
+      imgs.forEach((src, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'slideshow-slide' + (i === 0 ? ' active' : '');
+        slide.innerHTML = `<img class="slideshow-img-anim" src="${src}" alt="Slide ${i + 1}" loading="${i < 3 ? 'eager' : 'lazy'}">
+          <div class="slideshow-overlay"></div>
+          <div class="slideshow-caption">Hà Nội ${i + 1}</div>`;
+        slideshowTrack.appendChild(slide);
+      });
+      slideshowDots.innerHTML = '';
+      imgs.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+        dot.dataset.index = i;
+        slideshowDots.appendChild(dot);
+      });
+    }
+
+    function setSlide(index, effect) {
+      const slides = slideshowTrack.querySelectorAll('.slideshow-slide');
+      const dots = slideshowDots.querySelectorAll('.slideshow-dot');
+      ssIndex = ((index % ssImages.length) + ssImages.length) % ssImages.length;
+
+      // Remove all effect classes
+      slides.forEach(s => {
+        s.classList.remove('active', 'zoom-in', 'slide-in', 'zoom', 'slide-left');
+      });
+
+      // Set the new active slide with effect
+      slides[ssIndex].className = 'slideshow-slide active ' + effect;
+      dots.forEach((d, i) => d.classList.toggle('active', i === ssIndex));
+    }
+
+    function startSlideshow() {
+      ssPlaying = true;
+      ssEffectIdx = 0;
+      ssPlay.textContent = '⏸';
+      ssTimer = setInterval(() => {
+        ssEffectIdx = (ssEffectIdx + 1) % ssEffects.length;
+        setSlide(ssIndex + 1, ssEffects[ssEffectIdx]);
+      }, 4000);
+    }
+
+    function stopSlideshow() {
+      ssPlaying = false;
+      ssPlay.textContent = '▶';
+      clearInterval(ssTimer);
+    }
+
+    ssPlay.addEventListener('click', () => {
+      if (ssPlaying) stopSlideshow();
+      else startSlideshow();
+    });
+    ssPrev.addEventListener('click', () => { stopSlideshow(); setSlide(ssIndex - 1, 'active'); });
+    ssNext.addEventListener('click', () => { stopSlideshow(); setSlide(ssIndex + 1, ssEffects[(ssEffectIdx + 1) % ssEffects.length]); });
+    slideshowDots.addEventListener('click', (e) => {
+      if (e.target.classList.contains('slideshow-dot')) {
+        stopSlideshow();
+        setSlide(parseInt(e.target.dataset.index), 'active');
+      }
+    });
+
+    /* ===== RENDER DATASET GRID ===== */
+    function renderDataset(view = 'grid') {
+      const grid = document.getElementById('datasetGrid');
+      grid.className = 'photo-grid ' + view;
+      grid.innerHTML = datasetImages.map((src, i) => `
+        <div class="photo-item" data-index="${i}" style="animation-delay: ${(i % 12) * 0.05}s">
+          <img src="${src}" alt="Hà Nội ${i + 1}" loading="lazy">
+          <div class="photo-item-overlay"><span>Góc Hà Nội #${i + 1}</span></div>
+        </div>
+      `).join('');
+    }
+
+    /* ===== PHOTO MANAGER ===== */
+    const pmModal = document.getElementById('pmModal');
+    const pmGrid = document.getElementById('pmGrid');
+    const pmEmpty = document.getElementById('pmEmpty');
+    const pmSelectBar = document.getElementById('pmSelectBar');
+    const pmSelectCount = document.getElementById('pmSelectCount');
+    const pmContentEdit = document.getElementById('pmContentEdit');
+    const pmContentUpload = document.getElementById('pmContentUpload');
+    const pmUploadZone = document.getElementById('pmUploadZone');
+    const pmFileInput = document.getElementById('pmFileInput');
+    const pmPreviewArea = document.getElementById('pmPreviewArea');
+    const pmPreviewGrid = document.getElementById('pmPreviewGrid');
+    const pmPreviewCount = document.getElementById('pmPreviewCount');
+    const pmBtnSave = document.getElementById('pmBtnSave');
+    const pmBtnCancel = document.getElementById('pmBtnCancel');
+    const pmImgModal = document.getElementById('pmImgModal');
+    const pmImgView = document.getElementById('pmImgView');
+    const pmImgDel = document.getElementById('pmImgDel');
+
+    let pmImages = [];      // all images from IndexedDB
+    let pmSelected = new Set(); // selected IDs
+    let pmPendingFiles = [];    // files waiting to be saved
+    let pmViewIndex = 0;        // current view in preview modal
+
+    function openPhotoManager() {
+      pmModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      switchTab('edit');
+      loadPmGrid();
+    }
+
+    function closePhotoManager() {
+      pmModal.classList.remove('active');
+      document.body.style.overflow = '';
+      pmSelected.clear();
+      pmPendingFiles = [];
+    }
+
+    function switchTab(tab) {
+      document.querySelectorAll('.pm-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+      pmContentEdit.style.display = tab === 'edit' ? '' : 'none';
+      pmContentUpload.style.display = tab === 'upload' ? '' : 'none';
+      if (tab === 'upload') {
         pmPendingFiles = [];
         pmPreviewArea.classList.remove('active');
         pmFileInput.value = '';
-        pmBtnSave.textContent = '💾 Đã lưu!';
-        setTimeout(() => { pmBtnSave.textContent = '💾 Lưu Vào Album'; pmBtnSave.disabled = false; }, 2000);
-        await loadPmGrid();
-        await renderPersonal();
-      });
-  
-      // PM keyboard
-      document.addEventListener('keydown', (e) => {
-        if (!pmImgModal.classList.contains('active')) return;
-        if (e.key === 'Escape') closePmImg();
-        if (e.key === 'ArrowLeft') pmImgNav(-1);
-        if (e.key === 'ArrowRight') pmImgNav(1);
-      });
-  
-      // Open manager button
-      document.getElementById('btnManager').addEventListener('click', openPhotoManager);
-      document.getElementById('btnEdit').addEventListener('click', openPhotoManager);
-  
-      // View toggle
-      document.querySelectorAll('.view-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          renderDataset(btn.dataset.view);
-        });
-      });
-﻿
-    // ===== DATASET: THÊM ẢNH =====
-    const dsAddZone = document.getElementById('dsAddZone');
-    const dsAddInput = document.getElementById('dsAddInput');
-    const dsAddPreviewGrid = document.getElementById('dsAddPreviewGrid');
-    const dsAddPreview = document.querySelector('.ds-add-preview');
-    let dsAddFiles = [];
+      }
+    }
 
-    document.getElementById('datasetAddBtn')?.addEventListener('click', () => {
-      dsAddZone.style.display = dsAddZone.style.display === 'block' ? 'none' : 'block';
-      dsAddFiles = [];
-      if (dsAddPreviewGrid) dsAddPreviewGrid.innerHTML = '';
-      if (dsAddPreview) dsAddPreview.classList.remove('active');
-    });
+    async function loadPmGrid() {
+      pmImages = await getAllImages();
+      pmSelected.clear();
+      updatePmSelectBar();
+      renderPmGrid();
+    }
 
-    document.getElementById('dsAddClose')?.addEventListener('click', () => {
-      dsAddZone.style.display = 'none';
-      dsAddFiles = [];
-    });
-
-    if (dsAddInput) {
-      dsAddInput.addEventListener('change', (e) => {
-        const files = Array.from(e.target.files);
-        dsAddFiles = dsAddFiles.concat(files);
-        renderDsAddPreview();
+    function renderPmGrid() {
+      if (pmImages.length === 0) {
+        pmGrid.innerHTML = '';
+        pmEmpty.style.display = 'block';
+        return;
+      }
+      pmEmpty.style.display = 'none';
+      pmGrid.innerHTML = '';
+      pmImages.forEach((img, i) => {
+        const item = document.createElement('div');
+        item.className = 'pm-item' + (pmSelected.has(img.id) ? ' selected' : '');
+        item.dataset.id = img.id;
+        item.dataset.index = i;
+        item.style.animationDelay = (i * 0.04) + 's';
+        item.innerHTML = `
+          <img src="${img.dataUrl}" alt="Ảnh ${i + 1}" loading="lazy">
+          <div class="pm-item-overlay">${pmSelected.has(img.id) ? '✓' : 'Chọn'}</div>
+          <div class="pm-item-badge">${pmSelected.has(img.id) ? '✓' : ''}</div>`;
+        pmGrid.appendChild(item);
       });
     }
 
-    const dsAddUpload = document.querySelector('.ds-add-upload');
-    if (dsAddUpload) {
-      dsAddUpload.addEventListener('dragover', (e) => { e.preventDefault(); dsAddUpload.classList.add('drag-over'); });
-      dsAddUpload.addEventListener('dragleave', () => dsAddUpload.classList.remove('drag-over'));
-      dsAddUpload.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dsAddUpload.classList.remove('drag-over');
-        const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
-        dsAddFiles = dsAddFiles.concat(files);
-        renderDsAddPreview();
-      });
+    function updatePmSelectBar() {
+      const n = pmSelected.size;
+      pmSelectBar.style.display = n > 0 ? 'flex' : 'none';
+      pmSelectCount.textContent = `${n} ảnh đã chọn`;
     }
 
-    function renderDsAddPreview() {
-      if (!dsAddPreviewGrid || !dsAddPreview) return;
-      dsAddPreview.classList.add('active');
-      dsAddPreviewGrid.innerHTML = '';
-      const titleEl = dsAddPreview.querySelector('.ds-add-preview-title');
-      if (titleEl) titleEl.textContent = dsAddFiles.length + ' ảnh đã chọn';
-      dsAddFiles.forEach((file, i) => {
+    // Grid click: select or preview
+    pmGrid.addEventListener('click', async (e) => {
+      const item = e.target.closest('.pm-item');
+      if (!item) return;
+
+      const id = item.dataset.id;
+      const index = parseInt(item.dataset.index);
+
+      if (e.ctrlKey || e.metaKey || e.shiftKey) {
+        // Toggle select
+        if (pmSelected.has(id)) pmSelected.delete(id);
+        else pmSelected.add(id);
+        updatePmSelectBar();
+        renderPmGrid();
+      } else {
+        // Open preview
+        pmViewIndex = index;
+        openPmImg(index);
+      }
+    });
+
+    function openPmImg(index) {
+      pmViewIndex = index;
+      const img = pmImages[index];
+      pmImgView.src = img.dataUrl;
+      pmImgModal.classList.add('active');
+    }
+
+    function closePmImg() {
+      pmImgModal.classList.remove('active');
+    }
+
+    function pmImgNav(dir) {
+      pmViewIndex = ((pmViewIndex + dir + pmImages.length) % pmImages.length);
+      pmImgView.src = pmImages[pmViewIndex].dataUrl;
+    }
+
+    // Delete current viewed image
+    pmImgDel.addEventListener('click', async () => {
+      const id = pmImages[pmViewIndex].id;
+      await deleteImage(id);
+      await loadPmGrid();
+      closePmImg();
+    });
+
+    // Delete selected images
+    document.getElementById('pmDeleteSelected').addEventListener('click', async () => {
+      if (pmSelected.size === 0) return;
+      const confirmed = confirm(`Xóa ${pmSelected.size} ảnh đã chọn?`);
+      if (!confirmed) return;
+      for (const id of pmSelected) {
+        await deleteImage(id);
+      }
+      pmSelected.clear();
+      await loadPmGrid();
+    });
+
+    document.getElementById('pmClearSelection').addEventListener('click', () => {
+      pmSelected.clear();
+      updatePmSelectBar();
+      renderPmGrid();
+    });
+
+    // PM tab switching
+    document.querySelectorAll('.pm-tab').forEach(t => {
+      t.addEventListener('click', () => switchTab(t.dataset.tab));
+    });
+
+    // Close PM modal
+    document.getElementById('pmClose').addEventListener('click', closePhotoManager);
+    pmImgModal.addEventListener('click', (e) => {
+      if (e.target === pmImgModal) closePmImg();
+    });
+
+    // PM image nav
+    document.getElementById('pmImgPrev').addEventListener('click', () => pmImgNav(-1));
+    document.getElementById('pmImgNext').addEventListener('click', () => pmImgNav(1));
+    document.getElementById('pmImgClose').addEventListener('click', closePmImg);
+
+    // PM upload zone
+    pmUploadZone.addEventListener('dragover', (e) => { e.preventDefault(); pmUploadZone.classList.add('drag-over'); });
+    pmUploadZone.addEventListener('dragleave', () => pmUploadZone.classList.remove('drag-over'));
+    pmUploadZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      pmUploadZone.classList.remove('drag-over');
+      handlePmFiles(e.dataTransfer.files);
+    });
+    pmFileInput.addEventListener('change', () => handlePmFiles(pmFileInput.files));
+
+    function handlePmFiles(files) {
+      pmPendingFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
+      if (!pmPendingFiles.length) return;
+      pmPreviewArea.classList.add('active');
+      pmPreviewCount.textContent = pmPendingFiles.length;
+      pmPreviewGrid.innerHTML = '';
+      pmPendingFiles.forEach((file, i) => {
         const reader = new FileReader();
-        reader.onload = (ev) => {
-          const item = document.createElement('div');
-          item.className = 'ds-add-preview-item';
-          item.innerHTML = '<img src="' + ev.target.result + '" alt="Preview"><button class="ds-add-preview-remove" data-idx="' + i + '">×</button>';
-          dsAddPreviewGrid.appendChild(item);
+        reader.onload = (e) => {
+          const div = document.createElement('div');
+          div.className = 'pm-preview-item';
+          div.innerHTML = `<img src="${e.target.result}" alt="">
+            <button class="pm-preview-remove" data-idx="${i}">×</button>`;
+          pmPreviewGrid.appendChild(div);
         };
         reader.readAsDataURL(file);
       });
     }
 
-    dsAddPreviewGrid?.addEventListener('click', (e) => {
-      const removeBtn = e.target.closest('.ds-add-preview-remove');
-      if (removeBtn) {
-        const idx = parseInt(removeBtn.dataset.idx);
-        dsAddFiles.splice(idx, 1);
-        renderDsAddPreview();
-      }
+    pmPreviewGrid.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('pm-preview-remove')) return;
+      const idx = parseInt(e.target.dataset.idx);
+      pmPendingFiles.splice(idx, 1);
+      pmPreviewCount.textContent = pmPendingFiles.length;
+      if (!pmPendingFiles.length) pmPreviewArea.classList.remove('active');
+      else handlePmFiles(Object.assign([], pmPendingFiles));
     });
 
-    document.getElementById('dsAddConfirm')?.addEventListener('click', async () => {
-      if (dsAddFiles.length === 0) return;
-      for (const file of dsAddFiles) {
-        const dataUrl = await new Promise(resolve => {
+    pmBtnCancel.addEventListener('click', () => {
+      pmPendingFiles = [];
+      pmPreviewArea.classList.remove('active');
+      pmFileInput.value = '';
+    });
+
+    pmBtnSave.addEventListener('click', async () => {
+      if (!pmPendingFiles.length) return;
+      pmBtnSave.textContent = '⏳ Đang lưu...';
+      pmBtnSave.disabled = true;
+      const toSave = [];
+      for (const file of pmPendingFiles) {
+        const dataUrl = await new Promise(r => {
           const reader = new FileReader();
-          reader.onload = (ev) => resolve(ev.target.result);
+          reader.onload = e => r(e.target.result);
           reader.readAsDataURL(file);
         });
-        datasetImages.push(dataUrl);
+        toSave.push({ id: Date.now() + Math.random(), dataUrl, addedAt: Date.now(), name: file.name });
       }
-      renderDataset(document.querySelector('.view-btn.active')?.dataset.view || 'grid');
-      dsAddZone.style.display = 'none';
-      dsAddFiles = [];
-      for (let i = 0; i < 5; i++) {
-        setTimeout(() => {
-          const heart = document.createElement('div');
-          heart.className = 'float-heart';
-          heart.textContent = ['🌸','✨','📷','💖','🎀'][i];
-          heart.style.left = (Math.random() * window.innerWidth) + 'px';
-          heart.style.top = (window.innerHeight - 100) + 'px';
-          document.body.appendChild(heart);
-          setTimeout(() => heart.remove(), 2000);
-        }, i * 200);
-      }
+      await saveImages(toSave);
+      pmPendingFiles = [];
+      pmPreviewArea.classList.remove('active');
+      pmFileInput.value = '';
+      pmBtnSave.textContent = '💾 Đã lưu!';
+      setTimeout(() => { pmBtnSave.textContent = '💾 Lưu Vào Album'; pmBtnSave.disabled = false; }, 2000);
+      await loadPmGrid();
+      await renderPersonal();
     });
 
-    document.getElementById('dsAddCancelBtn')?.addEventListener('click', () => {
-      dsAddZone.style.display = 'none';
-      dsAddFiles = [];
+    // PM keyboard
+    document.addEventListener('keydown', (e) => {
+      if (!pmImgModal.classList.contains('active')) return;
+      if (e.key === 'Escape') closePmImg();
+      if (e.key === 'ArrowLeft') pmImgNav(-1);
+      if (e.key === 'ArrowRight') pmImgNav(1);
     });
 
-    // ===== DATASET: CHIẾU ALBUM (SLIDESHOW) =====
-    let dsSlideInterval = null;
-    let dsSlideIndex = 0;
-    let currentDsEffect = 'fade';
+    // Open manager button
+    document.getElementById('btnManager').addEventListener('click', openPhotoManager);
+    document.getElementById('btnEdit').addEventListener('click', openPhotoManager);
 
-    document.getElementById('datasetSlideshowBtn')?.addEventListener('click', () => {
-      if (datasetImages.length === 0) return;
-      const viewer = document.getElementById('dsFsViewer');
-      viewer.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      dsSlideIndex = 0;
-      showDsFsImage(dsSlideIndex, currentDsEffect);
-      startDsSlideshow();
-    });
-
-    function showDsFsImage(index, effect) {
-      const img = document.getElementById('dsFsImg');
-      const counter = document.querySelector('.ds-fs-counter');
-      const titleEl = document.querySelector('.ds-fs-title');
-      if (!img) return;
-      img.className = 'ds-fs-img';
-      img.style.opacity = '0';
-      setTimeout(() => {
-        img.src = datasetImages[index];
-        img.alt = 'Hà Nội ' + (index + 1);
-        img.className = 'ds-fs-img' + (effect ? ' effect-' + effect : ' effect-fade');
-        img.style.opacity = '';
-        if (counter) counter.textContent = (index + 1) + ' / ' + datasetImages.length;
-        if (titleEl) titleEl.textContent = 'Góc Hà Nội #' + (index + 1);
-      }, 100);
-    }
-
-    function startDsSlideshow() {
-      stopDsSlideshow();
-      dsSlideInterval = setInterval(() => {
-        dsSlideIndex = (dsSlideIndex + 1) % datasetImages.length;
-        showDsFsImage(dsSlideIndex, currentDsEffect);
-      }, 3000);
-    }
-
-    function stopDsSlideshow() {
-      if (dsSlideInterval) { clearInterval(dsSlideInterval); dsSlideInterval = null; }
-    }
-
-    // ===== DATASET: TOÀN MÀN (FULLSCREEN) =====
-    document.getElementById('datasetFullscreenBtn')?.addEventListener('click', () => {
-      if (datasetImages.length === 0) return;
-      const viewer = document.getElementById('dsFsViewer');
-      viewer.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      dsSlideIndex = 0;
-      showDsFsImage(dsSlideIndex, currentDsEffect);
-    });
-
-    document.getElementById('dsFsClose')?.addEventListener('click', () => {
-      document.getElementById('dsFsViewer').classList.remove('active');
-      document.body.style.overflow = '';
-      stopDsSlideshow();
-    });
-
-    document.getElementById('dsFsPrev')?.addEventListener('click', () => {
-      stopDsSlideshow();
-      dsSlideIndex = (dsSlideIndex - 1 + datasetImages.length) % datasetImages.length;
-      showDsFsImage(dsSlideIndex, currentDsEffect);
-    });
-
-    document.getElementById('dsFsNext')?.addEventListener('click', () => {
-      stopDsSlideshow();
-      dsSlideIndex = (dsSlideIndex + 1) % datasetImages.length;
-      showDsFsImage(dsSlideIndex, currentDsEffect);
-    });
-
-    document.querySelectorAll('.ds-fs-effect-btn').forEach(btn => {
+    // View toggle
+    document.querySelectorAll('.view-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.ds-fs-effect-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        currentDsEffect = btn.dataset.effect;
-        showDsFsImage(dsSlideIndex, currentDsEffect);
+        renderDataset(btn.dataset.view);
       });
     });
 
-    document.getElementById('dsFsDelBtn')?.addEventListener('click', () => {
-      if (datasetImages.length <= 1) { alert('Không thể xóa ảnh cuối cùng!'); return; }
-      if (!confirm('Xóa ảnh này khỏi album?')) return;
-      datasetImages.splice(dsSlideIndex, 1);
-      if (dsSlideIndex >= datasetImages.length) dsSlideIndex = 0;
-      showDsFsImage(dsSlideIndex, currentDsEffect);
-      renderDataset(document.querySelector('.view-btn.active')?.dataset.view || 'grid');
-    });
+    /* ===== RENDER PERSONAL ALBUM ===== */
+    async function renderPersonal() {
+      const grid = document.getElementById('personalGrid');
+      const empty = document.getElementById('emptyState');
+      const actions = document.getElementById('personalActions');
+      const count = document.getElementById('personalCount');
+      try {
+        const images = await getAllImages();
+        count.textContent = `${images.length} khoảnh khắc đã lưu`;
+        if (images.length === 0) {
+          grid.innerHTML = '';
+          empty.style.display = 'block';
+          actions.style.display = 'none';
+        } else {
+          empty.style.display = 'none';
+          actions.style.display = 'flex';
+          grid.innerHTML = images.map((img, i) => `
+            <div class="personal-item" data-id="${img.id}" style="animation-delay: ${i * 0.05}s">
+              <img src="${img.dataUrl}" alt="Ảnh ${i + 1}" loading="lazy">
+              <div class="personal-item-actions">
+                <button class="personal-action-btn view-btn" title="Xem lớn">🔍</button>
+                <button class="personal-action-btn delete-btn" title="Xóa">×</button>
+              </div>
+            </div>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Error loading personal album:', e);
+      }
+    }
 
-    document.getElementById('dsFsEditBtn')?.addEventListener('click', () => {
-      alert('Tính năng chỉnh sửa ảnh sẽ sớm ra mắt!');
-    });
+    /* ===== LIGHTBOX ===== */
+    let currentIndex = 0;
+    let allImages = [];
+    let lightboxSource = 'dataset';
 
+    function openLightbox(index, images, source) {
+      allImages = images;
+      currentIndex = index;
+      lightboxSource = source;
+      showLightboxImg();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showLightboxImg() {
+      const el = document.getElementById('lightboxImg');
+      const src = allImages[currentIndex].src || allImages[currentIndex];
+      el.src = src;
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function lightboxNav(dir) {
+      currentIndex = ((currentIndex + dir + allImages.length) % allImages.length);
+      showLightboxImg();
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', () => lightboxNav(-1));
+    document.getElementById('lightboxNext').addEventListener('click', () => lightboxNav(1));
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') closeLightbox();
+    });
     document.addEventListener('keydown', (e) => {
-      const viewer = document.getElementById('dsFsViewer');
-      if (!viewer || !viewer.classList.contains('active')) return;
-      if (e.key === 'Escape') { viewer.classList.remove('active'); document.body.style.overflow = ''; stopDsSlideshow(); }
-      if (e.key === 'ArrowLeft') { stopDsSlideshow(); dsSlideIndex = (dsSlideIndex - 1 + datasetImages.length) % datasetImages.length; showDsFsImage(dsSlideIndex, currentDsEffect); }
-      if (e.key === 'ArrowRight') { stopDsSlideshow(); dsSlideIndex = (dsSlideIndex + 1) % datasetImages.length; showDsFsImage(dsSlideIndex, currentDsEffect); }
-      if (e.key === ' ') { e.preventDefault(); if (dsSlideInterval) stopDsSlideshow(); else startDsSlideshow(); }
+      if (!document.getElementById('lightbox').classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxNav(-1);
+      if (e.key === 'ArrowRight') lightboxNav(1);
     });
 
-    document.getElementById('datasetGrid')?.addEventListener('dblclick', (e) => {
+    // Dataset grid click
+    document.getElementById('datasetGrid').addEventListener('click', (e) => {
       const item = e.target.closest('.photo-item');
       if (!item) return;
       const index = parseInt(item.dataset.index);
-      const viewer = document.getElementById('dsFsViewer');
-      viewer.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      dsSlideIndex = index;
-      showDsFsImage(dsSlideIndex, currentDsEffect);
+      openLightbox(index, datasetImages.map(src => ({ src })), 'dataset');
     });
-  
-      /* ===== RENDER PERSONAL ALBUM ===== */
-      async function renderPersonal() {
-        const grid = document.getElementById('personalGrid');
-        const empty = document.getElementById('emptyState');
-        const actions = document.getElementById('personalActions');
-        const count = document.getElementById('personalCount');
-        try {
-          const images = await getAllImages();
-          count.textContent = `${images.length} khoảnh khắc đã lưu`;
-          if (images.length === 0) {
-            grid.innerHTML = '';
-            empty.style.display = 'block';
-            actions.style.display = 'none';
-          } else {
-            empty.style.display = 'none';
-            actions.style.display = 'flex';
-            grid.innerHTML = images.map((img, i) => `
-              <div class="personal-item" data-id="${img.id}" style="animation-delay: ${i * 0.05}s">
-                <img src="${img.dataUrl}" alt="Ảnh ${i + 1}" loading="lazy">
-                <div class="personal-item-actions">
-                  <button class="personal-action-btn view-btn" title="Xem lớn">🔍</button>
-                  <button class="personal-action-btn delete-btn" title="Xóa">×</button>
-                </div>
-              </div>
-            `).join('');
-          }
-        } catch (e) {
-          console.error('Error loading personal album:', e);
+
+    // Personal album click
+    document.getElementById('personalGrid').addEventListener('click', async (e) => {
+      const item = e.target.closest('.personal-item');
+      if (!item) return;
+
+      if (e.target.classList.contains('delete-btn')) {
+        e.stopPropagation();
+        if (confirm('Xóa ảnh này?')) {
+          await deleteImage(item.dataset.id);
+          await renderPersonal();
         }
+        return;
       }
-  
-      /* ===== LIGHTBOX ===== */
-      let currentIndex = 0;
-      let allImages = [];
-      let lightboxSource = 'dataset';
-  
-      function openLightbox(index, images, source) {
-        allImages = images;
-        currentIndex = index;
-        lightboxSource = source;
-        showLightboxImg();
-        document.getElementById('lightbox').classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-  
-      function showLightboxImg() {
-        const el = document.getElementById('lightboxImg');
-        const src = allImages[currentIndex].src || allImages[currentIndex];
-        el.src = src;
-      }
-  
-      function closeLightbox() {
-        document.getElementById('lightbox').classList.remove('active');
-        document.body.style.overflow = '';
-      }
-  
-      function lightboxNav(dir) {
-        currentIndex = ((currentIndex + dir + allImages.length) % allImages.length);
-        showLightboxImg();
-      }
-  
-      document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-      document.getElementById('lightboxPrev').addEventListener('click', () => lightboxNav(-1));
-      document.getElementById('lightboxNext').addEventListener('click', () => lightboxNav(1));
-      document.getElementById('lightbox').addEventListener('click', (e) => {
-        if (e.target.id === 'lightbox') closeLightbox();
-      });
-      document.addEventListener('keydown', (e) => {
-        if (!document.getElementById('lightbox').classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') lightboxNav(-1);
-        if (e.key === 'ArrowRight') lightboxNav(1);
-      });
-  
-      // Dataset grid click
-      document.getElementById('datasetGrid').addEventListener('click', (e) => {
-        const item = e.target.closest('.photo-item');
-        if (!item) return;
-        const index = parseInt(item.dataset.index);
-        openLightbox(index, datasetImages.map(src => ({ src })), 'dataset');
-      });
-  
-      // Personal album click
-      document.getElementById('personalGrid').addEventListener('click', async (e) => {
-        const item = e.target.closest('.personal-item');
-        if (!item) return;
-  
-        if (e.target.classList.contains('delete-btn')) {
-          e.stopPropagation();
-          if (confirm('Xóa ảnh này?')) {
-            await deleteImage(item.dataset.id);
-            await renderPersonal();
-          }
-          return;
-        }
-  
-        if (e.target.classList.contains('view-btn')) {
-          e.stopPropagation();
-          const id = item.dataset.id;
-          const images = await getAllImages();
-          const index = images.findIndex(img => img.id === id);
-          openLightbox(index, images.map(img => ({ src: img.dataUrl })), 'personal');
-          return;
-        }
-  
+
+      if (e.target.classList.contains('view-btn')) {
+        e.stopPropagation();
         const id = item.dataset.id;
         const images = await getAllImages();
         const index = images.findIndex(img => img.id === id);
         openLightbox(index, images.map(img => ({ src: img.dataUrl })), 'personal');
-      });
-  
-      /* ===== PERSONAL SLIDESHOW ===== */
-      let psImages = [];
-      let psIndex = 0;
-      let psTimer = null;
-  
-      const personalSlideshow = document.getElementById('personalSlideshow');
-      const psSlide = document.getElementById('psSlide');
-      const psCounter = document.getElementById('psCounter');
-      const psClose = document.getElementById('psClose');
-      const psPrev = document.getElementById('psPrev');
-      const psNext = document.getElementById('psNext');
-      const psSlideWrap = personalSlideshow ? personalSlideshow.querySelector('.ps-track') : null;
-  
-      async function openPersonalSlideshow() {
-        const images = await getAllImages();
-        console.log('Personal slideshow images:', images.length);
-        if (images.length === 0) {
-          alert('Chưa có ảnh nào trong album riêng! Hãy upload ảnh trước.');
-          return;
-        }
-        psImages = images;
-        psIndex = 0;
-        // Force show first slide
-        psSlide.classList.remove('active');
-        psSlide.src = psImages[0].dataUrl;
-        psSlide.onload = () => psSlide.classList.add('active');
-        if (psImages[0].dataUrl) psSlide.src = psImages[0].dataUrl;
-        psSlide.classList.add('active');
-        psCounter.textContent = `1 / ${psImages.length}`;
-        if (personalSlideshow) personalSlideshow.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        clearInterval(psTimer);
-        psTimer = setInterval(() => {
-          const nextIdx = (psIndex + 1) % psImages.length;
-          psIndex = nextIdx;
-          animatePsSlide(psImages[psIndex].dataUrl, psIndex);
-        }, 4000);
+        return;
       }
-  
-      function animatePsSlide(src, index) {
-        // Fade out
-        psSlide.style.opacity = '0';
-        psSlide.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-          psSlide.src = src;
-          psCounter.textContent = `${index + 1} / ${psImages.length}`;
-          // Fade in
-          psSlide.onload = () => {
-            psSlide.style.opacity = '1';
-            psSlide.style.transform = 'scale(1)';
-          };
-          if (psSlide.complete) {
-            psSlide.style.opacity = '1';
-            psSlide.style.transform = 'scale(1)';
-          }
-        }, 400);
+
+      const id = item.dataset.id;
+      const images = await getAllImages();
+      const index = images.findIndex(img => img.id === id);
+      openLightbox(index, images.map(img => ({ src: img.dataUrl })), 'personal');
+    });
+
+    /* ===== PERSONAL SLIDESHOW ===== */
+    let psImages = [];
+    let psIndex = 0;
+    let psTimer = null;
+
+    const personalSlideshow = document.getElementById('personalSlideshow');
+    const psSlide = document.getElementById('psSlide');
+    const psCounter = document.getElementById('psCounter');
+    const psClose = document.getElementById('psClose');
+    const psPrev = document.getElementById('psPrev');
+    const psNext = document.getElementById('psNext');
+    const psSlideWrap = personalSlideshow ? personalSlideshow.querySelector('.ps-track') : null;
+
+    async function openPersonalSlideshow() {
+      const images = await getAllImages();
+      console.log('Personal slideshow images:', images.length);
+      if (images.length === 0) {
+        alert('Chưa có ảnh nào trong album riêng! Hãy upload ảnh trước.');
+        return;
       }
-  
-      function psNavigate(dir) {
-        clearInterval(psTimer);
-        psIndex = ((psIndex + dir + psImages.length) % psImages.length);
+      psImages = images;
+      psIndex = 0;
+      // Force show first slide
+      psSlide.classList.remove('active');
+      psSlide.src = psImages[0].dataUrl;
+      psSlide.onload = () => psSlide.classList.add('active');
+      if (psImages[0].dataUrl) psSlide.src = psImages[0].dataUrl;
+      psSlide.classList.add('active');
+      psCounter.textContent = `1 / ${psImages.length}`;
+      if (personalSlideshow) personalSlideshow.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      clearInterval(psTimer);
+      psTimer = setInterval(() => {
+        const nextIdx = (psIndex + 1) % psImages.length;
+        psIndex = nextIdx;
         animatePsSlide(psImages[psIndex].dataUrl, psIndex);
-        psTimer = setInterval(() => {
-          const nextIdx = (psIndex + 1) % psImages.length;
-          psIndex = nextIdx;
-          animatePsSlide(psImages[psIndex].dataUrl, psIndex);
-        }, 4000);
-      }
-  
-      if (psClose) psClose.addEventListener('click', () => {
-        if (personalSlideshow) personalSlideshow.classList.remove('active');
-        document.body.style.overflow = '';
-        clearInterval(psTimer);
+      }, 4000);
+    }
+
+    function animatePsSlide(src, index) {
+      // Fade out
+      psSlide.style.opacity = '0';
+      psSlide.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        psSlide.src = src;
+        psCounter.textContent = `${index + 1} / ${psImages.length}`;
+        // Fade in
+        psSlide.onload = () => {
+          psSlide.style.opacity = '1';
+          psSlide.style.transform = 'scale(1)';
+        };
+        if (psSlide.complete) {
+          psSlide.style.opacity = '1';
+          psSlide.style.transform = 'scale(1)';
+        }
+      }, 400);
+    }
+
+    function psNavigate(dir) {
+      clearInterval(psTimer);
+      psIndex = ((psIndex + dir + psImages.length) % psImages.length);
+      animatePsSlide(psImages[psIndex].dataUrl, psIndex);
+      psTimer = setInterval(() => {
+        const nextIdx = (psIndex + 1) % psImages.length;
+        psIndex = nextIdx;
+        animatePsSlide(psImages[psIndex].dataUrl, psIndex);
+      }, 4000);
+    }
+
+    if (psClose) psClose.addEventListener('click', () => {
+      if (personalSlideshow) personalSlideshow.classList.remove('active');
+      document.body.style.overflow = '';
+      clearInterval(psTimer);
+    });
+
+    if (psPrev) psPrev.addEventListener('click', () => psNavigate(-1));
+    if (psNext) psNext.addEventListener('click', () => psNavigate(1));
+
+    // Keyboard for personal slideshow
+    document.addEventListener('keydown', (e) => {
+      if (!personalSlideshow || !personalSlideshow.classList.contains('active')) return;
+      if (e.key === 'Escape') { psClose.click(); }
+      if (e.key === 'ArrowLeft') psNavigate(-1);
+      if (e.key === 'ArrowRight') psNavigate(1);
+    });
+
+    /* ===== UPLOAD ===== */
+    let pendingFiles = [];
+
+    const uploadZone = document.getElementById('uploadZone');
+    const fileInput = document.getElementById('fileInput');
+    const previewArea = document.getElementById('previewArea');
+    const previewGrid = document.getElementById('previewGrid');
+    const previewCount = document.getElementById('previewCount');
+    const uploadProgress = document.getElementById('uploadProgress');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const btnSave = document.getElementById('btnSave');
+    const btnCancel = document.getElementById('btnCancel');
+
+    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+    uploadZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadZone.classList.remove('drag-over');
+      handleFiles(e.dataTransfer.files);
+    });
+
+    fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+
+    function handleFiles(files) {
+      pendingFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
+      if (pendingFiles.length === 0) return;
+      renderPreviews();
+    }
+
+    function renderPreviews() {
+      previewArea.classList.add('active');
+      previewCount.textContent = pendingFiles.length;
+      previewGrid.innerHTML = '';
+      let completed = 0;
+      pendingFiles.forEach((file, i) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const div = document.createElement('div');
+          div.className = 'preview-item';
+          div.style.animationDelay = (i * 0.05) + 's';
+          div.innerHTML = `
+            <img src="${e.target.result}" alt="Preview ${i}">
+            <button class="preview-remove" data-idx="${i}">×</button>
+          `;
+          previewGrid.appendChild(div);
+          completed++;
+          progressText.textContent = `Đọc ${completed}/${pendingFiles.length} ảnh...`;
+        };
+        reader.readAsDataURL(file);
       });
-  
-      if (psPrev) psPrev.addEventListener('click', () => psNavigate(-1));
-      if (psNext) psNext.addEventListener('click', () => psNavigate(1));
-  
-      // Keyboard for personal slideshow
-      document.addEventListener('keydown', (e) => {
-        if (!personalSlideshow || !personalSlideshow.classList.contains('active')) return;
-        if (e.key === 'Escape') { psClose.click(); }
-        if (e.key === 'ArrowLeft') psNavigate(-1);
-        if (e.key === 'ArrowRight') psNavigate(1);
-      });
-  
-      /* ===== UPLOAD ===== */
-      let pendingFiles = [];
-  
-      const uploadZone = document.getElementById('uploadZone');
-      const fileInput = document.getElementById('fileInput');
-      const previewArea = document.getElementById('previewArea');
-      const previewGrid = document.getElementById('previewGrid');
-      const previewCount = document.getElementById('previewCount');
-      const uploadProgress = document.getElementById('uploadProgress');
-      const progressBar = document.getElementById('progressBar');
-      const progressText = document.getElementById('progressText');
-      const btnSave = document.getElementById('btnSave');
-      const btnCancel = document.getElementById('btnCancel');
-  
-      uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
-      uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
-      uploadZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        uploadZone.classList.remove('drag-over');
-        handleFiles(e.dataTransfer.files);
-      });
-  
-      fileInput.addEventListener('change', () => handleFiles(fileInput.files));
-  
-      function handleFiles(files) {
-        pendingFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
-        if (pendingFiles.length === 0) return;
+      progressText.textContent = `Sẵn sàng lưu ${pendingFiles.length} ảnh`;
+    }
+
+    previewGrid.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('preview-remove')) return;
+      const idx = parseInt(e.target.dataset.idx);
+      pendingFiles.splice(idx, 1);
+      previewCount.textContent = pendingFiles.length;
+      if (pendingFiles.length === 0) {
+        previewArea.classList.remove('active');
+      } else {
         renderPreviews();
       }
-  
-      function renderPreviews() {
-        previewArea.classList.add('active');
-        previewCount.textContent = pendingFiles.length;
-        previewGrid.innerHTML = '';
-        let completed = 0;
-        pendingFiles.forEach((file, i) => {
+    });
+
+    btnCancel.addEventListener('click', () => {
+      pendingFiles = [];
+      previewArea.classList.remove('active');
+      fileInput.value = '';
+    });
+
+    btnSave.addEventListener('click', async () => {
+      if (pendingFiles.length === 0) return;
+      uploadProgress.classList.add('active');
+      btnSave.disabled = true;
+      btnSave.textContent = '⏳ Đang lưu...';
+
+      const imagesToSave = [];
+      for (let i = 0; i < pendingFiles.length; i++) {
+        const file = pendingFiles[i];
+        const dataUrl = await new Promise(resolve => {
           const reader = new FileReader();
-          reader.onload = (e) => {
-            const div = document.createElement('div');
-            div.className = 'preview-item';
-            div.style.animationDelay = (i * 0.05) + 's';
-            div.innerHTML = `
-              <img src="${e.target.result}" alt="Preview ${i}">
-              <button class="preview-remove" data-idx="${i}">×</button>
-            `;
-            previewGrid.appendChild(div);
-            completed++;
-            progressText.textContent = `Đọc ${completed}/${pendingFiles.length} ảnh...`;
-          };
+          reader.onload = e => resolve(e.target.result);
           reader.readAsDataURL(file);
         });
-        progressText.textContent = `Sẵn sàng lưu ${pendingFiles.length} ảnh`;
+        imagesToSave.push({
+          id: Date.now() + Math.random(),
+          dataUrl,
+          addedAt: Date.now(),
+          name: file.name
+        });
+        progressBar.style.width = ((i + 1) / pendingFiles.length * 100) + '%';
+        progressText.textContent = `Đang lưu ${i + 1}/${pendingFiles.length} ảnh...`;
       }
-  
-      previewGrid.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('preview-remove')) return;
-        const idx = parseInt(e.target.dataset.idx);
-        pendingFiles.splice(idx, 1);
-        previewCount.textContent = pendingFiles.length;
-        if (pendingFiles.length === 0) {
-          previewArea.classList.remove('active');
-        } else {
-          renderPreviews();
-        }
-      });
-  
-      btnCancel.addEventListener('click', () => {
+
+      try {
+        await saveImages(imagesToSave);
         pendingFiles = [];
         previewArea.classList.remove('active');
+        uploadProgress.classList.remove('active');
+        progressBar.style.width = '0%';
         fileInput.value = '';
-      });
-  
-      btnSave.addEventListener('click', async () => {
-        if (pendingFiles.length === 0) return;
-        uploadProgress.classList.add('active');
-        btnSave.disabled = true;
-        btnSave.textContent = '⏳ Đang lưu...';
-  
-        const imagesToSave = [];
-        for (let i = 0; i < pendingFiles.length; i++) {
-          const file = pendingFiles[i];
-          const dataUrl = await new Promise(resolve => {
-            const reader = new FileReader();
-            reader.onload = e => resolve(e.target.result);
-            reader.readAsDataURL(file);
-          });
-          imagesToSave.push({
-            id: Date.now() + Math.random(),
-            dataUrl,
-            addedAt: Date.now(),
-            name: file.name
-          });
-          progressBar.style.width = ((i + 1) / pendingFiles.length * 100) + '%';
-          progressText.textContent = `Đang lưu ${i + 1}/${pendingFiles.length} ảnh...`;
-        }
-  
-        try {
-          await saveImages(imagesToSave);
-          pendingFiles = [];
-          previewArea.classList.remove('active');
-          uploadProgress.classList.remove('active');
-          progressBar.style.width = '0%';
-          fileInput.value = '';
-          await renderPersonal();
-          btnSave.textContent = '💾 Đã lưu!';
-          btnSave.style.background = '#A8BFA0';
-          setTimeout(() => {
-            btnSave.textContent = '💾 Lưu Album Riêng';
-            btnSave.style.background = '';
-            btnSave.disabled = false;
-          }, 2000);
-          document.getElementById('personal').scrollIntoView({ behavior: 'smooth' });
-        } catch (e) {
-          console.error(e);
-          btnSave.textContent = '❌ Lỗi! Thử lại';
-          btnSave.disabled = false;
-        }
-      });
-  
-      /* ===== PERSONAL ACTIONS ===== */
-      document.getElementById('btnSlideshow').addEventListener('click', openPersonalSlideshow);
-  
-      document.getElementById('btnShuffle').addEventListener('click', async () => {
-        const images = await getAllImages();
-        for (let i = images.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [images[i], images[j]] = [images[j], images[i]];
-        }
-        // Re-save in new order
-        for (const img of images) {
-          await saveImages([img]);
-        }
         await renderPersonal();
-      });
-  
-      document.getElementById('btnClearAll').addEventListener('click', async () => {
-        const images = await getAllImages();
-        if (images.length === 0) return;
-        if (confirm(`Xóa tất cả ${images.length} ảnh trong album riêng?`)) {
-          await clearAllImages();
-          await renderPersonal();
-        }
-      });
-  
-      /* ===== SCROLL REVEAL ===== */
-      const revealEls = document.querySelectorAll('.reveal');
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-  
-      revealEls.forEach(el => revealObserver.observe(el));
-  
-      /* ===== INIT ===== */
-      (async () => {
-        try {
-          await initDB();
-          createPetals();
-          renderSlideshow(datasetImages.slice(0, 12));
-          renderDataset('grid');
-          await renderPersonal();
-        } catch (e) {
-          console.error('Init error:', e);
-        }
-      })();
-
-    // Cursor sparkle trail
-    let sparkleThrottle = 0;
-    document.addEventListener('mousemove', (e) => {
-      if (Date.now() - sparkleThrottle < 80) return;
-      sparkleThrottle = Date.now();
-      const sparkle = document.createElement('div');
-      sparkle.className = 'cursor-sparkle';
-      sparkle.style.left = e.clientX + 'px';
-      sparkle.style.top = e.clientY + 'px';
-      sparkle.style.background = ['#C9869A','#8AACC8','#A8BFA0','#D4AF7A','#EBC8D8'][Math.floor(Math.random()*5)];
-      document.body.appendChild(sparkle);
-      setTimeout(() => sparkle.remove(), 600);
-    });
-
-    // Hero sparkles
-    function createSparkles() {
-      const hero = document.getElementById('hero');
-      if (!hero) return;
-      for (let i = 0; i < 15; i++) {
-        const sp = document.createElement('div');
-        sp.className = 'sparkle';
-        sp.style.left = Math.random() * 100 + '%';
-        sp.style.top = Math.random() * 100 + '%';
-        sp.style.animationDelay = (Math.random() * 4) + 's';
-        sp.style.animationDuration = (3 + Math.random() * 3) + 's';
-        hero.appendChild(sp);
-      }
-    }
-    createSparkles();
-
-    // Float hearts on personal album hover
-    document.getElementById('personal')?.addEventListener('click', (e) => {
-      if (e.target.closest('.personal-item')) {
-        const heart = document.createElement('div');
-        heart.className = 'float-heart';
-        heart.textContent = ['\U0001f496','\U0001f338','\u2728'][Math.floor(Math.random()*3)];
-        heart.style.left = e.clientX + 'px';
-        heart.style.top = e.clientY + 'px';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 2000);
+        btnSave.textContent = '💾 Đã lưu!';
+        btnSave.style.background = '#A8BFA0';
+        setTimeout(() => {
+          btnSave.textContent = '💾 Lưu Album Riêng';
+          btnSave.style.background = '';
+          btnSave.disabled = false;
+        }, 2000);
+        document.getElementById('personal').scrollIntoView({ behavior: 'smooth' });
+      } catch (e) {
+        console.error(e);
+        btnSave.textContent = '❌ Lỗi! Thử lại';
+        btnSave.disabled = false;
       }
     });
 
-});
+    /* ===== PERSONAL ACTIONS ===== */
+    document.getElementById('btnSlideshow').addEventListener('click', openPersonalSlideshow);
+
+    document.getElementById('btnShuffle').addEventListener('click', async () => {
+      const images = await getAllImages();
+      for (let i = images.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [images[i], images[j]] = [images[j], images[i]];
+      }
+      // Re-save in new order
+      for (const img of images) {
+        await saveImages([img]);
+      }
+      await renderPersonal();
+    });
+
+    document.getElementById('btnClearAll').addEventListener('click', async () => {
+      const images = await getAllImages();
+      if (images.length === 0) return;
+      if (confirm(`Xóa tất cả ${images.length} ảnh trong album riêng?`)) {
+        await clearAllImages();
+        await renderPersonal();
+      }
+    });
+
+    /* ===== SCROLL REVEAL ===== */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ===== INIT ===== */
+    (async () => {
+      try {
+        await initDB();
+        createPetals();
+        renderSlideshow(datasetImages.slice(0, 12));
+        renderDataset('grid');
+        await renderPersonal();
+      } catch (e) {
+        console.error('Init error:', e);
+      }
+    })();
   </script>
 </body>
 </html>
-
